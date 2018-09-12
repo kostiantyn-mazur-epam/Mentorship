@@ -1,39 +1,36 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LinkedList
 {
-    public class LinkedList<T>
+    public sealed class LinkedList<T> : IEnumerable<T>
     {
-        public int Size { get; private set; } = 0;
-        private LinkedListNode<T> Head { get; set; }
-        private LinkedListNode<T> Tail { get; set; }
+        private int _size;
+        private LinkedListNode<T> _head;
+        private LinkedListNode<T> _tail;
 
-        public LinkedList()
-        {
-            Head = null;
-            Tail = null;
-        }
+        public int Size { get => _size; }
+        public LinkedListNode<T> Head { get => _head; }
+        public LinkedListNode<T> Tail { get => _tail; }
 
         public void Add(T item)
         {
-            if (Size == 0)
+            if (_size == 0)
             {
-                Tail = new LinkedListNode<T>() { Item = item };
-                Head = Tail;
-                Size++;
+                _tail = new LinkedListNode<T>();
+                 _tail.Item = item;
+                _head = _tail;
+                _size++;
             }
             else
             {
-                var newTail = new LinkedListNode<T>()
-                {
-                    Item = item,
-                    Prev = Tail
-                };
-                Tail.Next = newTail;
-                Tail = newTail;
-                Size++;
+                var newTail = new LinkedListNode<T>();
+                newTail.Item = item;
+                newTail.Prev = _tail;
+                _tail.Next = newTail;
+                _tail = newTail;
+                _size++;
             }
         }
 
@@ -41,71 +38,70 @@ namespace LinkedList
         {
             if (item == null)
             {
-                throw new InvalidOperationException();
+                throw new ArgumentNullException(nameof(item));
             }
-
-            if (position < 0 || position > (Size - 1))
+            if (position < 0 || position > _size)
             {
-                throw new InvalidOperationException();
+                throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
             }
 
-            if(position == (Size - 1))
+            if (position == _size)
             {
                 Add(item);
             }
             else
             {
-                var positionAt = Head;
-                if ((Size - position) >= (position + 2))
+                var positionAt = _head;
+                if ((_size - position) >= (position + 2))
                 {
 
                     for (var i = 0; i < position; i++)
                     {
                         positionAt = positionAt.Next;
                     }
-                    InsertAfter(item, positionAt);
+                    InsertAt(item, positionAt);
                 }
                 else
                 {
-                    positionAt = Tail;
-                    for (var i = Size; i > 0; i--)
+                    positionAt = _tail;
+                    for (var i = _size; i > 0; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
-                    InsertAfter(item, positionAt);
-                } 
+                    InsertAt(item, positionAt);
+                }
             }
         }
 
         public void Remove()
         {
-            if (Size == 0)
+            if (_size == 0)
             {
                 throw new InvalidOperationException();
             }
             else
             {
-                Tail = Tail.Prev;
-                Tail.Next = null;
-                Size--;
+                _tail = _tail.Prev;
+                _tail.Next = null;
+                _size--;
             }
         }
 
         public void RemoveAt(int position)
         {
-            if (position < 0 || position > (Size - 1))
+            if (position < 0 || position > (_size - 1))
             {
-                throw new InvalidOperationException();
+                throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
             }
 
-            if (position == (Size - 1))
+            if (position == (_size - 1))
             {
                 Remove();
             }
             else
             {
-                var positionAt = Head;
-                if ((Size - position) >= (position + 2))
+                var positionAt = _head;
+                if ((_size - position) >= (position + 2))
                 {
 
                     for (var i = 0; i < position; i++)
@@ -116,8 +112,8 @@ namespace LinkedList
                 }
                 else
                 {
-                    positionAt = Tail;
-                    for (var i = Size; i > 0; i--)
+                    positionAt = _tail;
+                    for (var i = _size; i > 0; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
@@ -126,45 +122,51 @@ namespace LinkedList
             }
         }
 
-        private void InsertAfter(T item, LinkedListNode<T> node)
+        private void InsertAt(T item, LinkedListNode<T> node)
         {
-            var newNode = new LinkedListNode<T>()
+            var newNode = new LinkedListNode<T>();
+            newNode.Item = item;
+            newNode.Next = node;
+            
+            if (node.Prev == null)
             {
-                Item = item,
-                Next = node.Next,
-                Prev = node
-            };
-            node.Next.Prev = newNode;
-            node.Next = newNode;
-            Size++;
+                _head = newNode;
+            }
+            else
+            {
+                newNode.Prev = node.Prev;
+                node.Prev.Next = newNode;
+            }
+            node.Prev = newNode;
+            _size++;
         }
 
         private void DeleteNode(LinkedListNode<T> node)
         {
             node.Prev.Next = node.Next;
             node.Next.Prev = node.Prev;
-            Size--;
+            _size--;
         }
 
         public T ElementAt(int position)
         {
-            if (position < 0 || position > (Size - 1))
+            if (position < 0 || position > (_size - 1))
             {
-                throw new InvalidOperationException();
+                throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
             }
 
             if (position == 0)
             {
-                return Head.Item;
+                return _head.Item;
             }
-            else if(position == (Size - 1))
+            else if (position == (_size - 1))
             {
-                return Tail.Item;
+                return _tail.Item;
             }
             else
             {
-                var positionAt = Head;
-                if ((Size - position) >= (position + 2))
+                var positionAt = _head;
+                if ((_size - position) >= (position + 2))
                 {
 
                     for (var i = 0; i < position; i++)
@@ -175,14 +177,27 @@ namespace LinkedList
                 }
                 else
                 {
-                    positionAt = Tail;
-                    for (var i = Size; i > 0; i--)
+                    positionAt = _tail;
+                    for (var i = _size; i > 0; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
                     return positionAt.Item;
                 }
             }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (var node = _head; node != null; node = node.Next)
+            {
+                yield return node.Item;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+           return GetEnumerator();
         }
     }
 }

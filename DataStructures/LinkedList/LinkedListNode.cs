@@ -2,10 +2,10 @@
 
 namespace LinkedList
 {
-    internal class LinkedListNode<T>
+    public sealed class LinkedListNode<T>
     {
-        internal T Item { get; set; }
-        internal LinkedListNode<T> Next { get; set; }
-        internal LinkedListNode<T> Prev { get; set; }
+        public T Item { get; set; }
+        public LinkedListNode<T> Next { get; set; }
+        public LinkedListNode<T> Prev { get; set; }
     }
 }
