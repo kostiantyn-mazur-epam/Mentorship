@@ -16,6 +16,11 @@ namespace LinkedList
 
         public void Add(T item)
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+
             if (_size == 0)
             {
                 _tail = new LinkedListNode<T>();
