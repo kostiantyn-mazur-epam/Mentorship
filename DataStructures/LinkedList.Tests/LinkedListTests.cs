@@ -27,13 +27,25 @@ namespace LinkedList.Tests
         }
 
         [TestMethod]
-        public void AddAt_Item_ShouldAddNodeAtPositionToEmptyList()
+        public void AddAt_Item_ShouldAddNodeAtPosition0ToEmptyList()
         {
             var list = new LinkedList<int>();
             list.AddAt(3, 0);
             Assert.AreEqual(list.Tail.Item, 3);
             Assert.AreEqual(list.Head.Item, 3);
             Assert.AreEqual(list.Size, 1);
+        }
+
+        [TestMethod]
+        public void AddAt_Item_ShouldAddNodeAtPosition1ToListOf3()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.AddAt(4, 1);
+            Assert.AreEqual(list.Size, 4);
+
         }
     }
 }

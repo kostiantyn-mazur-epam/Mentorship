@@ -64,7 +64,7 @@ namespace LinkedList
                 else
                 {
                     positionAt = _tail;
-                    for (var i = _size; i > 0; i--)
+                    for (var i = _size; i > position; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
