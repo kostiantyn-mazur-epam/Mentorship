@@ -11,8 +11,6 @@ namespace LinkedList
         private LinkedListNode<T> _tail;
 
         public int Size { get => _size; }
-        public LinkedListNode<T> Head { get => _head; }
-        public LinkedListNode<T> Tail { get => _tail; }
 
         public void Add(T item)
         {
@@ -69,7 +67,7 @@ namespace LinkedList
                 else
                 {
                     positionAt = _tail;
-                    for (var i = _size; i > position; i--)
+                    for (var i = _size - 1; i > position; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
@@ -82,7 +80,13 @@ namespace LinkedList
         {
             if (_size == 0)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("You can't remove from empty list");
+            }
+            else if (_size == 1)
+            {
+                _head = null;
+                _tail = null;
+                _size--;
             }
             else
             {
@@ -94,6 +98,11 @@ namespace LinkedList
 
         public void RemoveAt(int position)
         {
+            if (_size == 0)
+            {
+                throw new InvalidOperationException();
+            }
+
             if (position < 0 || position > (_size - 1))
             {
                 throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
@@ -118,7 +127,7 @@ namespace LinkedList
                 else
                 {
                     positionAt = _tail;
-                    for (var i = _size; i > 0; i--)
+                    for (var i = _size - 1; i > position; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
@@ -148,13 +157,26 @@ namespace LinkedList
 
         private void DeleteNode(LinkedListNode<T> node)
         {
-            node.Prev.Next = node.Next;
-            node.Next.Prev = node.Prev;
+            if (node.Prev == null)
+            {
+                node.Next.Prev = null;
+                _head = node.Next;
+            }
+            else
+            {
+                node.Prev.Next = node.Next;
+                node.Next.Prev = node.Prev;
+            }
             _size--;
         }
 
         public T ElementAt(int position)
         {
+            if (_size == 0)
+            {
+                throw new InvalidOperationException("The list is empty");
+            }
+
             if (position < 0 || position > (_size - 1))
             {
                 throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");

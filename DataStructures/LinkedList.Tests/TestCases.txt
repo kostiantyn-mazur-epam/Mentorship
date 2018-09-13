@@ -1,0 +1,192 @@
+1. Add item to an empty list using "Add" method.
+   Steps:
+   - Create empty list of type Int32;
+   - Call "Add" method with parameter value = 1;
+   Expected result: list of 1 element with "Item" property value = 1.
+
+2. Add item to not empty list using "Add" method.
+   Steps:
+   - Create empty list of type Int32;
+   - Add one element with "Item" value = 1 using "Add" method;
+   - Call "Add" method with parameter value = 2;
+   Expected result: list of 2 elements, second element "Item" property value = 1.
+
+3. Add null to an empty list isung "Add" method.
+   Steps:
+   - Create empty list of type string;
+   - Call "Add" method with parameter value = null;
+   Expected result: ArgumentNullException is thrown.
+
+4. Add null to not empty list isung "Add" method.
+   Steps:
+   - Create empty list of type string;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "Add" method with parameter value = null;
+   Expected result: ArgumentNullException is thrown.
+
+5. Add item at position 0 of an empty list using "AddAt" method.
+   Steps:
+   - Create empty list of type Int32;
+   - Call "AddAt" method with parameters values = 1 and 0 respectively;
+   Expected result: list of 1 element with "Item" property value = 1.
+
+6. Add item at position 1 of a list of 3 elements using "AddAt" method.
+   Steps:
+   - Create empty list of type Int32;
+   - Add values 1, 2, 3 sequentially using "Add" method;
+   - Call "AddAt" method with parameters values = 4 and 1 respectively;
+   Expected result: list of 4 elements with "Item" property value of the second element = 4.
+
+7. Add item at position 1 of an empty list using "AddAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Call "AddAt" method with parameters values = (3, 1);
+   Expected result: ArgumentOutOfRangeException is thrown.
+
+8. Add item at position 2 of a list with 1 element using "AddAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "AddAt" method with parameters values = (2, 2);
+   Expected result: ArgumentOutOfRangeException is thrown.
+
+9. Add item at position 1 of a list of 1 element using "AddAt" method.
+   Steps:
+   - Create empty list of type Int32;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "AddAt" method with parameters values = (2, 1);
+   Expected result: list of 2 elements with "Item" property value of the second element = 2.
+
+10. Add item at position 0 of a list of 1 element using "AddAt" method.
+    Steps:
+   - Create empty list of type Int32;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "AddAt" method with parameters values = (2, 0);
+   Expected result: list of 2 elements with "Item" property value of the second element = 1.
+
+11. Add null at position 0 of an empty list using "AddAt" method.
+    Steps:
+   - Create empty list of type string;
+   - Call "AddAt" method with parameters values = (null, 0);
+   Expected result: ArgumentNullException is thrown.
+
+12. Add null at position 0 of a list of 1 element using "AddAt" method.
+    Steps:
+   - Create empty list of type string;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "AddAt" method with parameters values = (null, 0);
+   Expected result: ArgumentNullException is thrown.
+
+13. Add item at position with negative value to an empty list using "AddAt" method.
+    Steps:
+   - Create empty list of type string;
+   - Call "AddAt" method with parameters values = (1, -2);
+   Expected result: ArgumentOutOfRangeException is thrown.
+
+14. Add item at position with value greather than list size to a list using "AddAt" method.
+    Steps:
+   - Create empty list of type string;
+   - Call "AddAt" method with parameters values = (1, 1);
+   Expected result: ArgumentOutOfRangeException is thrown.
+ 
+15. Remove item from empty list using "Remove" method.
+   Steps:
+   - Create empty list of type string;
+   - Call "Remove" method;
+   Expected result: InvalidOperationException is thrown.
+
+16. Remove item from not empty list using "Remove" method.
+   Steps:
+   - Create empty list of type string;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "Remove" method;
+   Expected result: empty list.
+
+17. Remove item at position with negative value from not empty list using "RemoveAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "RemoveAt" method with parameter value = (-1);
+   Expected result: ArgumentOutOfRangeException is thrown.
+
+18. Remove item at position >= list size from a not empty list using "RemoveAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "RemoveAt" method with parameter value = (1);
+   Expected result: ArgumentOutOfRangeException is thrown.
+
+19. Remove item at any position from an empty list using "RemoveAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Call "RemoveAt" method with parameter value = (2);
+   Expected result: InvalidOperationException is thrown.
+
+20. Remove the only item from a list of 1 element using "RemoveAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add one element with "Item" value = "1" using "Add" method;
+   - Call "RemoveAt" method with parameter value = (0);
+   Expected result: empty list.
+
+21. Remove item in the middle of a not empty list using "RemoveAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add items with values 1, 2, 3 sequentially using "Add" method;
+   - Call "RemoveAt" method with parameter value = (1);
+   Expected result: list of 2 elements, element at position 2 shifted to position 1.
+
+22. Remove first item from a not empty list using "RemoveAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add items with values 1, 2 sequentially using "Add" method;
+   - Call "RemoveAt" method with parameter value = (0);
+   Expected result: list of 1 element, element at position 1 shifted to position 0.
+
+23. Get first item from a list of 1 element using "ElementAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add item with value 1 using "Add" method;
+   - Call "ElementAt" method with parameter value = (0);
+   Expected result: value of 1.
+
+24. Get first item from a list of 2 elements using "ElementAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add item with value 1, 2 sequentially using "Add" method;
+   - Call "ElementAt" method with parameter value = (0);
+   Expected result: value of 1.
+
+25. Get last item from a list of 2 elements using "ElementAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add item with value 1, 2 sequentially using "Add" method;
+   - Call "ElementAt" method with parameter value = (1);
+   Expected result: value of 2.
+
+26. Get item at any position from an empty list using "ElementAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Call "ElementAt" method with parameter value = (0);
+   Expected result: InvalidOperationException is thrown.
+
+27. Get item at negative position from a not empty list using "ElementAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add item with value 1 using "Add" method;
+   - Call "ElementAt" method with parameter value = (-1);
+   Expected result: ArgumentOutOfRangeException is thrown.
+
+28. Get item at position >= list size from a list using "ElementAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add item with value 1 using "Add" method;
+   - Call "ElementAt" method with parameter value = (1);
+   Expected result: ArgumentOutOfRangeException is thrown.
+ 	
+29. Change all elements of the not empty list.
+   Steps:
+   - Create empty list of type string;
+   - Add item with value 1 using "Add" method;
+   - Call "ElementAt" method with parameter value = (1);
+   Expected result: ArgumentOutOfRangeException is thrown.

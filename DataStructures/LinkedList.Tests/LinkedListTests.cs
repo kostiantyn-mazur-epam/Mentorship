@@ -10,21 +10,19 @@ namespace LinkedList.Tests
         public void Add_Item_ShouldAddNodeToEmptyList()
         {
             var list = new LinkedList<int>();
-            list.Add(5);
-            Assert.AreEqual(list.Tail.Item, 5);
-            Assert.AreEqual(list.Head.Item, 5);
+            list.Add(1);
             Assert.AreEqual(list.Size, 1);
+            Assert.AreEqual(list.ElementAt(0), 1);
         }
 
         [TestMethod]
         public void Add_Item_ShouldAddNodeToNotEmptyList()
         {
             var list = new LinkedList<int>();
-            list.Add(5);
+            list.Add(1);
             list.Add(2);
-            Assert.AreEqual(list.Tail.Item, 2);
-            Assert.AreEqual(list.Head.Item, 5);
             Assert.AreEqual(list.Size, 2);
+            Assert.AreEqual(list.ElementAt(1), 2);
         }
 
         [TestMethod]
@@ -46,10 +44,9 @@ namespace LinkedList.Tests
         public void AddAt_Item_ShouldAddNodeAtPosition0ToEmptyList()
         {
             var list = new LinkedList<int>();
-            list.AddAt(3, 0);
-            Assert.AreEqual(list.Tail.Item, 3);
-            Assert.AreEqual(list.Head.Item, 3);
+            list.AddAt(1, 0);
             Assert.AreEqual(list.Size, 1);
+            Assert.AreEqual(list.ElementAt(0), 1);
         }
 
         [TestMethod]
@@ -61,7 +58,7 @@ namespace LinkedList.Tests
             list.Add(3);
             list.AddAt(4, 1);
             Assert.AreEqual(list.Size, 4);
-
+            Assert.AreEqual(list.ElementAt(1), 4);
         }
 
         [TestMethod]
@@ -72,34 +69,31 @@ namespace LinkedList.Tests
         }
 
         [TestMethod]
-        public void AddAt_Item_ShoudThrowWhenAddAtPosition3ToListOf2()
+        public void AddAt_Item_ShoudThrowWhenAddAtPosition2ToListOf1()
         {
             var list = new LinkedList<int>();
             list.Add(1);
-            list.Add(2);
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.AddAt(3, 3));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.AddAt(2, 2));
         }
 
         [TestMethod]
-        public void AddAt_Item_ShouldAddNodeAtLastPositionToNotEmptyList()
+        public void AddAt_Item_ShouldAddNodeAtPosition1ToListOf1()
         {
             var list = new LinkedList<int>();
             list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.AddAt(4, 3);
-            Assert.AreEqual(list.Size, 4);
+            list.AddAt(2, 1);
+            Assert.AreEqual(list.Size, 2);
+            Assert.AreEqual(list.ElementAt(1), 2);
         }
 
         [TestMethod]
-        public void AddAt_Item_ShouldAddAtFirstPositionToNotEmptyList()
+        public void AddAt_Item_ShouldAddNodeAtPosition0ToListOf1()
         {
             var list = new LinkedList<int>();
             list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.AddAt(4, 0);
-            Assert.AreEqual(list.Size, 4);
+            list.AddAt(2, 0);
+            Assert.AreEqual(list.Size, 2);
+            Assert.AreEqual(list.ElementAt(0), 2);
         }
 
         [TestMethod]
@@ -118,7 +112,7 @@ namespace LinkedList.Tests
         }
 
         [TestMethod]
-        public void AddAt_Item_ShouldThrowWhenAddNodeAtPositionMinus2ToEmptyList()
+        public void AddAt_Item_ShouldThrowWhenAddNodeAtNegativePositionToEmptyList()
         {
             var list = new LinkedList<int>();
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.AddAt(1, -2));
@@ -132,18 +126,137 @@ namespace LinkedList.Tests
         }
 
         [TestMethod]
-        public void Remove_Item_ShouldThrowWhenRemoveFromEmptyList()
+        public void Remove_Item_ShouldThrowWhenRemoveNodeFromEmptyList()
         {
             var list = new LinkedList<int>();
             Assert.ThrowsException<InvalidOperationException>(() => list.Remove());
         }
 
+        [TestMethod]
         public void Remove_Item_ShouldRemoveNodeFromListOf1()
         {
             var list = new LinkedList<int>();
             list.Add(1);
             list.Remove();
             Assert.AreEqual(list.Size, 0);
+        }
+
+        [TestMethod]
+        public void RemoveAt_Item_ShouldThrowWhenRemoveNodeAtNegaivePositionFromListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.RemoveAt(-1));
+        }
+
+        [TestMethod]
+        public void RemoveAt_Item_ShouldThrowWhenRemoveNodeAtPosition2FromEmptyList()
+        {
+            var list = new LinkedList<int>();
+            Assert.ThrowsException<InvalidOperationException>(() => list.RemoveAt(2));
+        }
+
+        [TestMethod]
+        public void RemoveAt_Item_ShouldThrowWhenRemoveNodeAtPosition1FromListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.RemoveAt(1));
+        }
+
+        [TestMethod]
+        public void RemoveAt_Item_ShouldRemoveNodeAtPosition0FromListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.RemoveAt(0);
+            Assert.AreEqual(list.Size, 0);
+        }
+
+        [TestMethod]
+        public void RemoveAt_Item_ShouldRemoveNodeAtPosition1FromListOf3()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.RemoveAt(1);
+            Assert.AreEqual(list.Size, 2);
+            Assert.AreEqual(list.ElementAt(1), 3);
+        }
+
+        [TestMethod]
+        public void RemoveAt_Item_ShouldRemoveNodeAtPosition0FromListOf2()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.RemoveAt(0);
+            Assert.AreEqual(list.Size, 1);
+            Assert.AreEqual(list.ElementAt(0), 2);
+        }
+
+        [TestMethod]
+        public void ElementAt_Item_ShouldReturnItemAtPosition0FromListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            Assert.AreEqual(list.ElementAt(0), 1);
+        }
+
+        [TestMethod]
+        public void ElementAt_Item_ShouldReturnItemAtPosition0FromListOf2()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            Assert.AreEqual(list.ElementAt(0), 1);
+        }
+
+        [TestMethod]
+        public void ElementAt_Item_ShouldReturnItemAtPosition1FromListOf2()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            Assert.AreEqual(list.ElementAt(1), 2);
+        }
+
+        [TestMethod]
+        public void ElementAt_Item_ShouldThrowWhenListIsEmpty()
+        {
+            var list = new LinkedList<int>();
+            Assert.ThrowsException<InvalidOperationException>(() => list.ElementAt(0));
+        }
+
+        [TestMethod]
+        public void ElementAt_Item_ShouldThrowWhenTakeItemAtPositionNegative1FromListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.ElementAt(-1));
+        }
+
+        [TestMethod]
+        public void ElementAt_Item_ShouldThrowWhenTakeItemAtPosition1FromListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.ElementAt(1));
+        }
+
+        [TestMethod]
+        public void GetEnumerator_ShouldChangeAllListElements()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            var sum = 0;
+            foreach(var element in list)
+            {
+                sum += element;
+            }
+            Assert.AreEqual(sum, 3);
         }
     }
 }
