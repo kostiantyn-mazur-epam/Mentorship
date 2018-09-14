@@ -8,15 +8,11 @@ namespace LinkedList
     public class LinkedListEnumerator<T> : IEnumerator<T>
     {
         private LinkedListNode<T> _current;
-        private bool _atFirst;
+        private bool _atFirst = true;
 
         public LinkedListEnumerator(LinkedListNode<T> current)
         {
             _current = current;
-            if(current != null)
-            {
-                _atFirst = true;
-            }
         }
 
         public T Current => _current.Item;
@@ -25,6 +21,10 @@ namespace LinkedList
 
         public bool MoveNext()
         {
+            if (_current == null)
+            {
+                return false;
+            }
             if (_atFirst)
             {
                 _atFirst = false;

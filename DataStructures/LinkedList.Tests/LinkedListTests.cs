@@ -246,7 +246,7 @@ namespace LinkedList.Tests
         }
 
         [TestMethod]
-        public void GetEnumerator_ShouldChangeAllListElements()
+        public void GetEnumerator_ShouldSumElementsOfNotEmptyList()
         {
             var list = new LinkedList<int>();
             list.Add(1);
@@ -257,6 +257,18 @@ namespace LinkedList.Tests
                 sum += element;
             }
             Assert.AreEqual(sum, 3);
+        }
+
+        [TestMethod]
+        public void GetEnumerator_ShouldSumElementsOfEmptyList()
+        {
+            var list = new LinkedList<int>();
+            var sum = 0;
+            foreach (var element in list)
+            {
+                sum += element;
+            }
+            Assert.AreEqual(sum, 0);
         }
     }
 }

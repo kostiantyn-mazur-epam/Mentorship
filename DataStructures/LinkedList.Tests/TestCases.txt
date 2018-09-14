@@ -184,9 +184,15 @@
    - Call "ElementAt" method with parameter value = (1);
    Expected result: ArgumentOutOfRangeException is thrown.
  	
-29. Change all elements of the not empty list.
+29. Sum all elements of a not empty list.
    Steps:
    - Create empty list of type string;
-   - Add item with value 1 using "Add" method;
-   - Call "ElementAt" method with parameter value = (1);
-   Expected result: ArgumentOutOfRangeException is thrown.
+   - Add item with value 1, 2 sequentially using "Add" method;
+   - Sum all elements using foreach;
+   Expected result: value of 3.
+
+30. Sum all elements of an empty list.
+   Steps:
+   - Create empty list of type string;
+   - Sum all elements using foreach;
+   Expected result: value of 0.
