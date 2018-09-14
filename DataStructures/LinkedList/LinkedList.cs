@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace LinkedList
 {
-    public sealed class LinkedList<T> : IEnumerable<T>
+    public sealed class LinkedList<T>
     {
         private int _size;
         private LinkedListNode<T> _head;
@@ -214,17 +214,18 @@ namespace LinkedList
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public LinkedListEnumerator<T> GetEnumerator()
         {
-            for (var node = _head; node != null; node = node.Next)
-            {
-                yield return node.Item;
-            }
+            return new LinkedListEnumerator<T>(_head);
         }
+        //public IEnumerator<T> GetEnumerator()
+        //{
+        //    return new LinkedListEnumerator<T>(_head);
+        //}
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-           return GetEnumerator();
-        }
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    return GetEnumerator();
+        //}
     }
 }
