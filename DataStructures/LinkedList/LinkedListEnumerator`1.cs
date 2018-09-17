@@ -5,14 +5,15 @@ using System.Text;
 
 namespace LinkedList
 {
-    public class LinkedListEnumerator<T> : IEnumerator<T>
+    public struct LinkedListEnumerator<T> : IEnumerator<T>
     {
         private LinkedListNode<T> _current;
-        private bool _atFirst = true;
+        private bool _atFirst;
 
         internal LinkedListEnumerator(LinkedListNode<T> current)
         {
             _current = current;
+            _atFirst = true;
         }
 
         public T Current => _current.Item;
