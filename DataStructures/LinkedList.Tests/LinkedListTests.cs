@@ -4,15 +4,63 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LinkedList.Tests
 {
     [TestClass]
-    public class LinkedListTests
+    public sealed class LinkedListTests
     {
+        [TestMethod]
+        public void Add_Item_ShouldAddNodeWithDefaultValueOfStructToEmptyList()
+        {
+            var list = new LinkedList<int>();
+
+            list.Add(default(int));
+
+            Assert.AreEqual(1, list.Length);
+            Assert.AreEqual(0, list.ElementAt(0));
+        }
+
+        [TestMethod]
+        public void Add_Item_ShouldAddNodeWithDefaultValueOfClassToEmptyList()
+        {
+            var list = new LinkedList<string>();
+
+            list.Add(default(string));
+
+            Assert.AreEqual(1, list.Length);
+            Assert.AreEqual(null, list.ElementAt(0));
+        }
+
+        [TestMethod]
+        public void Add_Item_ShouldAddNodeWithDefaultValueOfStructToListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+
+            list.Add(default(int));
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(0, list.ElementAt(1));
+        }
+
+        [TestMethod]
+        public void Add_Item_ShouldAddNodeWithDefaultValueOfClassToListOf1()
+        {
+            var list = new LinkedList<string>();
+            list.Add("1");
+
+            list.Add(default(string));
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(null, list.ElementAt(1));
+        }
+
         [TestMethod]
         public void Add_Item_ShouldAddNodeToEmptyList()
         {
             var list = new LinkedList<int>();
+
             list.Add(1);
-            Assert.AreEqual(list.Size, 1);
-            Assert.AreEqual(list.ElementAt(0), 1);
+
+            Assert.AreEqual(1, list.Length);
+            Assert.AreEqual(1, list.ElementAt(0));
         }
 
         [TestMethod]
@@ -20,33 +68,68 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             list.Add(2);
-            Assert.AreEqual(list.Size, 2);
-            Assert.AreEqual(list.ElementAt(1), 2);
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(2, list.ElementAt(1));
         }
 
         [TestMethod]
-        public void Add_Item_ShouldThrowWhenAddNullToEmptyList()
+        public void AddAt_Item_ShouldAddNodeWithDefaultValueOfStructAtPosition0ToEmptyList()
+        {
+            var list = new LinkedList<int>();
+
+            list.AddAt(default(int), 0);
+
+            Assert.AreEqual(1, list.Length);
+            Assert.AreEqual(0, list.ElementAt(0));
+        }
+
+        [TestMethod]
+        public void AddAt_Item_ShouldAddNodeWithDefaultValueOfClassAtPosition0ToEmptyList()
         {
             var list = new LinkedList<string>();
-            Assert.ThrowsException<ArgumentNullException>(() => list.Add(null));
+
+            list.AddAt(default(string), 0);
+
+            Assert.AreEqual(1, list.Length);
+            Assert.AreEqual(null, list.ElementAt(0));
         }
 
         [TestMethod]
-        public void Add_Item_ShouldThrowWhenAddNullToNotEmptyList()
+        public void AddAt_Item_ShouldAddNodeWithDefaultValueOfStructAtPosition0ToListOf1()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+
+            list.AddAt(default(int), 0);
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(0, list.ElementAt(0));
+        }
+
+        [TestMethod]
+        public void AddAt_Item_ShouldAddNodeWithDefaultValueOfClassAtPosition0ToListOf1()
         {
             var list = new LinkedList<string>();
             list.Add("1");
-            Assert.ThrowsException<ArgumentNullException>(() => list.Add(null));
+
+            list.AddAt(default(string), 0);
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(null, list.ElementAt(0));
         }
 
         [TestMethod]
         public void AddAt_Item_ShouldAddNodeAtPosition0ToEmptyList()
         {
             var list = new LinkedList<int>();
+
             list.AddAt(1, 0);
-            Assert.AreEqual(list.Size, 1);
-            Assert.AreEqual(list.ElementAt(0), 1);
+
+            Assert.AreEqual(1, list.Length);
+            Assert.AreEqual(1, list.ElementAt(0));
         }
 
         [TestMethod]
@@ -56,15 +139,18 @@ namespace LinkedList.Tests
             list.Add(1);
             list.Add(2);
             list.Add(3);
+
             list.AddAt(4, 1);
-            Assert.AreEqual(list.Size, 4);
-            Assert.AreEqual(list.ElementAt(1), 4);
+
+            Assert.AreEqual(4, list.Length);
+            Assert.AreEqual(4, list.ElementAt(1));
         }
 
         [TestMethod]
         public void AddAt_Item_ShoudThrowWhenAddAtPosition1ToEmptyList()
         {
             var list = new LinkedList<int>();
+
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.AddAt(3, 1));
         }
 
@@ -73,6 +159,7 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.AddAt(2, 2));
         }
 
@@ -81,9 +168,11 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             list.AddAt(2, 1);
-            Assert.AreEqual(list.Size, 2);
-            Assert.AreEqual(list.ElementAt(1), 2);
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(2, list.ElementAt(1));
         }
 
         [TestMethod]
@@ -91,30 +180,18 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             list.AddAt(2, 0);
-            Assert.AreEqual(list.Size, 2);
-            Assert.AreEqual(list.ElementAt(0), 2);
-        }
 
-        [TestMethod]
-        public void AddAt_Item_ShouldThrowWhenAddNullAtPosition0ToEmptyList()
-        {
-            var list = new LinkedList<string>();
-            Assert.ThrowsException<ArgumentNullException>(() => list.AddAt(null, 0));
-        }
-
-        [TestMethod]
-        public void AddAt_Item_ShouldThrowWhenAddNullAtPosition0ToNotEmptyList()
-        {
-            var list = new LinkedList<string>();
-            list.Add("1");
-            Assert.ThrowsException<ArgumentNullException>(() => list.AddAt(null, 0));
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(2, list.ElementAt(0));
         }
 
         [TestMethod]
         public void AddAt_Item_ShouldThrowWhenAddNodeAtNegativePositionToEmptyList()
         {
             var list = new LinkedList<int>();
+
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.AddAt(1, -2));
         }
 
@@ -122,14 +199,22 @@ namespace LinkedList.Tests
         public void AddAt_Item_ShouldThrowWhenAddNodeAtPosition1ToEmptyList()
         {
             var list = new LinkedList<int>();
+
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.AddAt(1, 1));
         }
 
         [TestMethod]
-        public void Remove_Item_ShouldThrowWhenRemoveNodeFromEmptyList()
+        public void Remove_Item_ShouldRemoveFirstNodeFromListOf3()
         {
             var list = new LinkedList<int>();
-            Assert.ThrowsException<InvalidOperationException>(() => list.Remove());
+            list.Add(1);
+            list.Add(2);
+            list.Add(1);
+
+            list.Remove(1);
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(2, list.ElementAt(0));
         }
 
         [TestMethod]
@@ -137,8 +222,32 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
-            list.Remove();
-            Assert.AreEqual(list.Size, 0);
+
+            list.Remove(1);
+
+            Assert.AreEqual(0, list.Length);
+        }
+
+        [TestMethod]
+        public void Remove_Item_ShouldNotAffectEmptyList()
+        {
+            var list = new LinkedList<int>();
+
+            list.Remove(1);
+
+            Assert.AreEqual(0, list.Length);
+        }
+
+        [TestMethod]
+        public void Remove_Item_ShouldNotAffectNotEmptyListWithNoMatches()
+        {
+            var list = new LinkedList<int>();
+            list.Add(2);
+            list.Add(3);
+
+            list.Remove(1);
+
+            Assert.AreEqual(2, list.Length);
         }
 
         [TestMethod]
@@ -146,14 +255,8 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.RemoveAt(-1));
-        }
 
-        [TestMethod]
-        public void RemoveAt_Item_ShouldThrowWhenRemoveNodeAtPosition2FromEmptyList()
-        {
-            var list = new LinkedList<int>();
-            Assert.ThrowsException<InvalidOperationException>(() => list.RemoveAt(2));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.RemoveAt(-1));
         }
 
         [TestMethod]
@@ -161,6 +264,7 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.RemoveAt(1));
         }
 
@@ -169,8 +273,10 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             list.RemoveAt(0);
-            Assert.AreEqual(list.Size, 0);
+
+            Assert.AreEqual(0, list.Length);
         }
 
         [TestMethod]
@@ -180,9 +286,11 @@ namespace LinkedList.Tests
             list.Add(1);
             list.Add(2);
             list.Add(3);
+
             list.RemoveAt(1);
-            Assert.AreEqual(list.Size, 2);
-            Assert.AreEqual(list.ElementAt(1), 3);
+
+            Assert.AreEqual(2, list.Length);
+            Assert.AreEqual(3, list.ElementAt(1));
         }
 
         [TestMethod]
@@ -191,9 +299,11 @@ namespace LinkedList.Tests
             var list = new LinkedList<int>();
             list.Add(1);
             list.Add(2);
+
             list.RemoveAt(0);
-            Assert.AreEqual(list.Size, 1);
-            Assert.AreEqual(list.ElementAt(0), 2);
+
+            Assert.AreEqual(1, list.Length);
+            Assert.AreEqual(2, list.ElementAt(0));
         }
 
         [TestMethod]
@@ -201,7 +311,8 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
-            Assert.AreEqual(list.ElementAt(0), 1);
+
+            Assert.AreEqual(1, list.ElementAt(0));
         }
 
         [TestMethod]
@@ -210,7 +321,8 @@ namespace LinkedList.Tests
             var list = new LinkedList<int>();
             list.Add(1);
             list.Add(2);
-            Assert.AreEqual(list.ElementAt(0), 1);
+
+            Assert.AreEqual(1, list.ElementAt(0));
         }
 
         [TestMethod]
@@ -219,13 +331,15 @@ namespace LinkedList.Tests
             var list = new LinkedList<int>();
             list.Add(1);
             list.Add(2);
-            Assert.AreEqual(list.ElementAt(1), 2);
+
+            Assert.AreEqual(2, list.ElementAt(1));
         }
 
         [TestMethod]
         public void ElementAt_Item_ShouldThrowWhenListIsEmpty()
         {
             var list = new LinkedList<int>();
+
             Assert.ThrowsException<InvalidOperationException>(() => list.ElementAt(0));
         }
 
@@ -234,6 +348,7 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.ElementAt(-1));
         }
 
@@ -242,6 +357,7 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             list.Add(1);
+
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => list.ElementAt(1));
         }
 
@@ -252,11 +368,13 @@ namespace LinkedList.Tests
             list.Add(1);
             list.Add(2);
             var sum = 0;
-            foreach(var element in list)
+
+            foreach (var element in list)
             {
                 sum += element;
             }
-            Assert.AreEqual(sum, 3);
+
+            Assert.AreEqual(3, sum);
         }
 
         [TestMethod]
@@ -264,11 +382,13 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
             var sum = 0;
+
             foreach (var element in list)
             {
                 sum += element;
             }
-            Assert.AreEqual(sum, 0);
+
+            Assert.AreEqual(0, sum);
         }
     }
 }
