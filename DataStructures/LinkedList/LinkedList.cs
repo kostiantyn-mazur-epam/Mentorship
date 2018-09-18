@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace LinkedList
 {
-    public sealed class LinkedList<T> : IEnumerable<T>
+    public sealed class LinkedList<T>
     {
         private int _size;
         private LinkedListNode<T> _head;
         private LinkedListNode<T> _tail;
 
-        public int Size { get => _size; }
-        public LinkedListNode<T> Head { get => _head; }
-        public LinkedListNode<T> Tail { get => _tail; }
+        public int Length
+        {
+            get => _size;
+        }
 
         public void Add(T item)
         {
             if (_size == 0)
             {
                 _tail = new LinkedListNode<T>();
-                 _tail.Item = item;
+                _tail.Item = item;
                 _head = _tail;
                 _size++;
             }
@@ -36,10 +36,6 @@ namespace LinkedList
 
         public void AddAt(T item, int position)
         {
-            if (item == null)
-            {
-                throw new ArgumentNullException(nameof(item));
-            }
             if (position < 0 || position > _size)
             {
                 throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
@@ -64,7 +60,7 @@ namespace LinkedList
                 else
                 {
                     positionAt = _tail;
-                    for (var i = _size; i > 0; i--)
+                    for (var i = _size - 1; i > position; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
@@ -73,17 +69,17 @@ namespace LinkedList
             }
         }
 
-        public void Remove()
+        public void Remove(T item)
         {
-            if (_size == 0)
+            var current = _head;
+            while (current != null)
             {
-                throw new InvalidOperationException();
-            }
-            else
-            {
-                _tail = _tail.Prev;
-                _tail.Next = null;
-                _size--;
+                if (EqualityComparer<T>.Default.Equals(current.Item, item))
+                {
+                    DeleteNode(current);
+                    break;
+                }
+                current = current.Next;
             }
         }
 
@@ -92,11 +88,6 @@ namespace LinkedList
             if (position < 0 || position > (_size - 1))
             {
                 throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
-            }
-
-            if (position == (_size - 1))
-            {
-                Remove();
             }
             else
             {
@@ -113,7 +104,7 @@ namespace LinkedList
                 else
                 {
                     positionAt = _tail;
-                    for (var i = _size; i > 0; i--)
+                    for (var i = _size - 1; i > position; i--)
                     {
                         positionAt = positionAt.Prev;
                     }
@@ -127,7 +118,7 @@ namespace LinkedList
             var newNode = new LinkedListNode<T>();
             newNode.Item = item;
             newNode.Next = node;
-            
+
             if (node.Prev == null)
             {
                 _head = newNode;
@@ -143,13 +134,36 @@ namespace LinkedList
 
         private void DeleteNode(LinkedListNode<T> node)
         {
-            node.Prev.Next = node.Next;
-            node.Next.Prev = node.Prev;
+            if ((node.Prev == null) && (node.Next == null))
+            {
+                _head = null;
+                _tail = null;
+            }
+            else if (node.Prev == null)
+            {
+                node.Next.Prev = null;
+                _head = node.Next;
+            }
+            else if (node.Next == null)
+            {
+                node.Prev.Next = null;
+                _tail = node.Prev;
+            }
+            else
+            {
+                node.Prev.Next = node.Next;
+                node.Next.Prev = node.Prev;
+            }
             _size--;
         }
 
         public T ElementAt(int position)
         {
+            if (_size == 0)
+            {
+                throw new InvalidOperationException("The list is empty");
+            }
+
             if (position < 0 || position > (_size - 1))
             {
                 throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
@@ -187,17 +201,9 @@ namespace LinkedList
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public LinkedListEnumerator<T> GetEnumerator()
         {
-            for (var node = _head; node != null; node = node.Next)
-            {
-                yield return node.Item;
-            }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-           return GetEnumerator();
+            return new LinkedListEnumerator<T>(_head);
         }
     }
 }
