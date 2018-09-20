@@ -77,10 +77,3 @@ and key = "test", value = "data" respectively.
    - Call "Add" method with parameter value = ("key", "value");
    - Call method "TryGet" with key value = "key";
    Expected result: true, value = "value".
-
-13. Try to get value for the specified key , which exists in the hashtable.
-   Steps:
-   - Create empty hashtable;
-   - Call "Add" method with parameter value = ("key", "value");
-   - Call method "TryGet" with key value = "key";
-   Expected result: true, value = "value".
