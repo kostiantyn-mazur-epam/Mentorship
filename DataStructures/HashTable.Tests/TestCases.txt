@@ -1,0 +1,79 @@
+1. Add string key-value pair to the empty hashtable using "Add" method.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   Expected result: hashtable containing element with key = "key" and value = "value".
+
+2. Add two string key-value pairs to the empty hashtable using "Add" method.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   - Call "Add" method with parameter value = ("test", "data");
+   Expected result: hashtable containing two elements with key = "key", value = "value"
+and key = "test", value = "data" respectively.
+
+3. Add string key-value pair to the hashtable with already existing same key using "Add" method.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   - Call "Add" method with parameter value = ("key", "test");
+   Expected result: ArgumentException is thrown.
+
+4. Get appropriate value for the specified key using indexer get method.
+   Steps:
+   - Create empty hashtable;
+   - Call indexer get method with key value = "test";
+   Expected result: KeyNotFoundException is thrown.
+
+5. Get appropriate value for the specified key using indexer get method.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   - Call indexer get method with key value = "key";
+   Expected result: "value" value.
+
+6. Set value for the specified key (which doesn't exist in the hashtable) using indexer set method.
+   Steps:
+   - Create empty hashtable;
+   - Call indexer set method with key value = "key" and assign value "value" to it;
+   Expected result: key-value pair ("key", "value") added to a hashtable.
+
+7. Set value for the specified key (which exists in a hashtable) using indexer set method.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   - Call indexer set method with key value = "key" and assign value "test" to it;
+   Expected result: element's with the key "key" value is "test".
+
+8. Set null value for the specified key (which exists in the hashtable) using indexer set method.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   - Call indexer set method with key value = "key" and assign value null to it;
+   Expected result: hashtable with no elements with the key "key".
+
+9. Ensure that specified key exists in the hashtable.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   - Call method "Contains" with key value = "key";
+   Expected result: true.
+
+10. Ensure that specified key doesn't exist in the hashtable.
+   Steps:
+   - Create empty hashtable;
+   - Call method "Contains" with key value = "key";
+   Expected result: false.
+
+11. Try to get value for the specified key , which doesn't exist in the hashtable.
+   Steps:
+   - Create empty hashtable;
+   - Call method "TryGet" with key value = "key";
+   Expected result: false, value = null.
+
+12. Try to get value for the specified key , which exists in the hashtable.
+   Steps:
+   - Create empty hashtable;
+   - Call "Add" method with parameter value = ("key", "value");
+   - Call method "TryGet" with key value = "key";
+   Expected result: true, value = "value".

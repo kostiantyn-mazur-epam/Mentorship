@@ -16,9 +16,15 @@ namespace LinkedList
             _atFirst = true;
         }
 
-        public T Current => _current.Item;
+        public T Current
+        {
+            get => _current.Item;
+        }
 
-        object IEnumerator.Current => Current;
+        object IEnumerator.Current
+        {
+            get => Current;
+        }
 
         public bool MoveNext()
         {
