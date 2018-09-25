@@ -1,56 +1,39 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Text;
 using Microsoft.Win32.SafeHandles;
 
 namespace Convestudo.Unmanaged
 {
-    public class FileWriter: IFileWriter//, IDisposable
+    public class FileWriter : IFileWriter, IDisposable
     {
-        private readonly IntPtr _fileHandle;
-        //SafeFileHandle _safeHandle = new SafeFileHandle(IntPtr.Zero, true);
-        /// <summary>
-        /// Creates file
-        /// <see cref="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx"/>
-        /// </summary>
-        /// <param name="lpFileName"></param>
-        /// <param name="dwDesiredAccess"></param>
-        /// <param name="dwShareMode"></param>
-        /// <param name="lpSecurityAttributes"></param>
-        /// <param name="dwCreationDisposition"></param>
-        /// <param name="dwFlagsAndAttributes"></param>
-        /// <param name="hTemplateFile"></param>
-        /// <returns></returns>
-        [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern IntPtr CreateFile(string lpFileName, DesiredAccess dwDesiredAccess, ShareMode dwShareMode, IntPtr lpSecurityAttributes, CreationDisposition dwCreationDisposition, FlagsAndAttributes dwFlagsAndAttributes, IntPtr hTemplateFile);
+        private const uint _HRESULT_SUCCESS = 0x80070000;
 
-        /// <summary>
-        /// Writes data into a file
-        /// </summary>
-        /// <param name="hFile"></param>
-        /// <param name="aBuffer"></param>
-        /// <param name="cbToWrite"></param>
-        /// <param name="cbThatWereWritten"></param>
-        /// <param name="pOverlapped"></param>
-        /// <returns></returns>
-        [DllImport("kernel32.dll", SetLastError = true)]
-        internal static extern bool WriteFile(IntPtr hFile, Byte[] aBuffer, UInt32 cbToWrite, ref UInt32 cbThatWereWritten, IntPtr pOverlapped);
+        private SafeFileHandle _safeHandle;
 
-        //[DllImport("Kernel32", SetLastError = true)]
-        //private static extern bool CloseHandle(IntPtr handle);
+        [DllImport("KERNEL32", SetLastError = true, CharSet = CharSet.Unicode)]
+        internal static extern SafeFileHandle CreateFile(string lpFileName, DesiredAccess dwDesiredAccess, ShareMode dwShareMode, IntPtr lpSecurityAttributes, CreationDisposition dwCreationDisposition, FlagsAndAttributes dwFlagsAndAttributes, IntPtr hTemplateFile);
+
+        [DllImport("KERNEL32", SetLastError = true, CharSet = CharSet.Unicode)]
+        internal static extern bool WriteFile(SafeFileHandle hFile, byte[] aBuffer, uint cbToWrite, ref uint cbThatWereWritten, IntPtr pOverlapped);
 
         private void ThrowLastWin32Err()
         {
-            Marshal.ThrowExceptionForHR(
-             Marshal.GetHRForLastWin32Error());
+            var hresult = Marshal.GetHRForLastWin32Error();
+
+            if (hresult != unchecked((int)_HRESULT_SUCCESS))
+            {
+                Marshal.ThrowExceptionForHR(hresult);
+            }
         }
 
         public FileWriter(string fileName)
         {
-            _fileHandle = CreateFile(
+            _safeHandle = CreateFile(
                 fileName,
                 DesiredAccess.Write,
-                ShareMode.None, 
-                IntPtr.Zero, 
+                ShareMode.None,
+                IntPtr.Zero,
                 CreationDisposition.CreateAlways,
                 FlagsAndAttributes.Normal,
                 IntPtr.Zero);
@@ -61,14 +44,13 @@ namespace Convestudo.Unmanaged
         public void Write(string str)
         {
             var bytes = GetBytes(str);
-            uint bytesWritten = 0;
-            WriteFile(_fileHandle, bytes, (uint) bytes.Length, ref bytesWritten, IntPtr.Zero);
-            //throw new System.NotImplementedException();
+            var bytesWritten = 0U;
+            WriteFile(_safeHandle, bytes, (uint)bytes.Length, ref bytesWritten, IntPtr.Zero);
         }
 
         public void WriteLine(string str)
         {
-            Write(String.Format("{0}{1}", str, Environment.NewLine));
+            Write(string.Format("{0}{1}", str, Environment.NewLine));
         }
 
         /// <summary>
@@ -76,49 +58,15 @@ namespace Convestudo.Unmanaged
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        static byte[] GetBytes(string str)
+
+        private static byte[] GetBytes(string str)
         {
-            var bytes = new byte[str.Length * sizeof(char)];
-            Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
-            return bytes;
+            return Encoding.Unicode.GetBytes(str);
         }
 
-        //#region IDisposable Support
-        //private bool disposedValue = false; // To detect redundant calls
-
-        //protected virtual void Dispose(bool disposing)
-        //{
-        //    if (!disposedValue)
-        //    {
-                
-        //        if (disposing)
-        //        {
-        //            // TODO: dispose managed state (managed objects).
-        //            _safeHandle.Dispose();
-        //        }
-        //        if (_fileHandle != IntPtr.Zero)
-        //        {
-
-        //            CloseHandle(_fileHandle);
-        //        }
-        //        // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-        //        // TODO: set large fields to null.
-
-        //        disposedValue = true;
-        //    }
-        //}
-
-        //~FileWriter()
-        //{
-        //    Dispose(false);
-        //}
-
-        //// This code added to correctly implement the disposable pattern.
-        //public void Dispose()
-        //{
-        //    Dispose(true);
-        //    GC.SuppressFinalize(this);
-        //}
-        //#endregion
+        public void Dispose()
+        {
+            _safeHandle.Dispose();
+        }
     }
 }

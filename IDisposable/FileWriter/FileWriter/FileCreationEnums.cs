@@ -30,7 +30,6 @@ namespace Convestudo.Unmanaged
         Delete = 0x4,
     }
 
-
     /// <summary>
     /// Defines an action to do on creating file /to open, create, fails if exists...
     /// <see cref="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx"/>
@@ -44,7 +43,6 @@ namespace Convestudo.Unmanaged
         TruncateExsting = 5
     }
 
-
     /// <summary>
     /// 
     /// <see cref="http://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx"/>
@@ -52,8 +50,6 @@ namespace Convestudo.Unmanaged
     [Flags]
     public enum FlagsAndAttributes : uint
     {
-
         Normal = 0x80
-        //and others, see WinApi documentation
     }
 }

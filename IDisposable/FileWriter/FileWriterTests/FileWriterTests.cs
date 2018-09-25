@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.IO;
+using System.Text;
 
 namespace FileWriterTests
 {
@@ -12,9 +13,7 @@ namespace FileWriterTests
 
         private static string CreateTestFilePath()
         {
-            var filePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + "-" + TestFileName);
-
-            return filePath;
+            return Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + "-" + TestFileName);
         }
 
         [Test]
@@ -22,7 +21,8 @@ namespace FileWriterTests
         {
             var filePath = CreateTestFilePath();
             var fileWriter = new FileWriter(filePath);
-            //Assert.DoesNotThrow(fileWriter.Dispose);
+
+            Assert.DoesNotThrow(fileWriter.Dispose);
         }
 
         [Test]
@@ -31,8 +31,8 @@ namespace FileWriterTests
             var filePath = CreateTestFilePath();
             var fileWriter = new FileWriter(filePath);
 
-            //fileWriter.Dispose();            
-            //Assert.DoesNotThrow(fileWriter.Dispose);
+            fileWriter.Dispose();            
+            Assert.DoesNotThrow(fileWriter.Dispose);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace FileWriterTests
             var fileWriter1 = new FileWriter(filePath);
             fileWriter1.Write("Test");
 
-            Assert.Throws<IOException>(() =>
+            Assert.Throws<FileLoadException>(() =>
             {
                 var file2 = new FileWriter(filePath);
                 file2.Write("adsf");
@@ -54,9 +54,8 @@ namespace FileWriterTests
         {
             var filePath = CreateTestFilePath();
             const string testLine = "TestLine";
-            var extectedStr = String.Format("{0}{0}{0}{0}", testLine);
-            var fileWriter = new FileWriter(filePath);
-           /* using (var fileWriter = new FileWriter(TestFileName))*/
+            var extectedStr = string.Format("{0}{0}{0}{0}", testLine);
+            using (var fileWriter = new FileWriter(filePath))
             {
                 fileWriter.Write(testLine);
                 fileWriter.Write(testLine);
@@ -65,7 +64,7 @@ namespace FileWriterTests
             }
 
             using (var fileStream = File.OpenRead(filePath))
-            using (var streamReader = new StreamReader(fileStream))
+            using (var streamReader = new StreamReader(fileStream, Encoding.Unicode))
             {
                 var str = streamReader.ReadToEnd();
                 Assert.AreEqual(extectedStr, str);
@@ -77,19 +76,18 @@ namespace FileWriterTests
         {
             var filePath = CreateTestFilePath();
             const string testLine = "TestLine";
-            var extectedStr = String.Format("{0}{1}{0}{1}{0}{1}{0}", testLine, Environment.NewLine);
+            var extectedStr = string.Format("{0}{1}{0}{1}{0}{1}{0}", testLine, Environment.NewLine);
 
-            var fileWriter = new FileWriter(filePath);
-            //using (var fileWriter = new FileWriter(TestFileName))
+            using (var fileWriter = new FileWriter(filePath))
             {
                 fileWriter.WriteLine(testLine);
                 fileWriter.WriteLine(testLine);
                 fileWriter.WriteLine(testLine);
-                fileWriter.WriteLine(testLine);
+                fileWriter.Write(testLine);
             }
 
             using (var fileStream = File.OpenRead(filePath))
-            using (var streamReader = new StreamReader(fileStream))
+            using (var streamReader = new StreamReader(fileStream, Encoding.Unicode))
             {
                 var str = streamReader.ReadToEnd();
                 Assert.AreEqual(extectedStr, str);
