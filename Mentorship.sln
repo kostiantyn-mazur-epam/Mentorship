@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList.Tests", "DataStr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashTable", "DataStructures\HashTable\HashTable.csproj", "{38A431FE-9CDF-4E14-A1B0-87A9F001649F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTable.Tests", "DataStructures\HashTable.Tests\HashTable.Tests.csproj", "{322AE00C-2F42-40B3-83B7-1169E5085C64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashTable.Tests", "DataStructures\HashTable.Tests\HashTable.Tests.csproj", "{322AE00C-2F42-40B3-83B7-1169E5085C64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDisposableImplementation", "IDisposable\IDisposableImplementation\IDisposableImplementation\IDisposableImplementation.csproj", "{416509EB-A2DC-4CB6-87CC-4F44C20380F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWriter", "IDisposable\FileWriter\FileWriter\FileWriter.csproj", "{AB167933-FC43-480E-968F-6F0738C09F6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWriterTests", "IDisposable\FileWriter\FileWriterTests\FileWriterTests.csproj", "{A9363C11-EA72-448B-A213-DF50CE107DD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{322AE00C-2F42-40B3-83B7-1169E5085C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{322AE00C-2F42-40B3-83B7-1169E5085C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{322AE00C-2F42-40B3-83B7-1169E5085C64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416509EB-A2DC-4CB6-87CC-4F44C20380F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416509EB-A2DC-4CB6-87CC-4F44C20380F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416509EB-A2DC-4CB6-87CC-4F44C20380F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416509EB-A2DC-4CB6-87CC-4F44C20380F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB167933-FC43-480E-968F-6F0738C09F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB167933-FC43-480E-968F-6F0738C09F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB167933-FC43-480E-968F-6F0738C09F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB167933-FC43-480E-968F-6F0738C09F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9363C11-EA72-448B-A213-DF50CE107DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9363C11-EA72-448B-A213-DF50CE107DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9363C11-EA72-448B-A213-DF50CE107DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9363C11-EA72-448B-A213-DF50CE107DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
