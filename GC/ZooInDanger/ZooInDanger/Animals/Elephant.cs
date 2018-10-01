@@ -29,7 +29,12 @@
 
         ~Elephant()
         {
-            _rightTusk = _leftTusk = null;
+            _rightTusk = null;
+            _leftTusk = null;
+            _leftFrontFoot = null;
+            _leftBackFoot = null;
+            _rightFrontFoot = null;
+            _rightBackFoot = null;
         }
     }
 }
