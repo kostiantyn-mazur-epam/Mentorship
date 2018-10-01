@@ -23,6 +23,9 @@ namespace Zoo.Animals
             Logger.LogYellow("Finalizing cat!");
 
             // Release the object only in case number of corpses > 100
+            //while (Zoo.NumCorpses <= 100)
+            //{
+            //}
         }
     }
 }
