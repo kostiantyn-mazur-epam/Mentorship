@@ -25,10 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFix", "GC\CodeFix\CodeF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStaticResurrection", "GC\NoStaticResurrection\NoStaticResurrection.csproj", "{7B37A117-A098-4DBF-A523-CA47DEB8B54C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator", "TDD\StringCalculator\StringCalculator.csproj", "{F17F6733-5E98-431F-B3E4-1E7601D2A2BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringCalculator.Tests", "TDD\StringCalculator.Tests\StringCalculator.Tests.csproj", "{BF8B2F9E-2349-462E-9DCC-CDB7A763D94B}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -78,11 +79,22 @@ Global
 		{7B37A117-A098-4DBF-A523-CA47DEB8B54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B37A117-A098-4DBF-A523-CA47DEB8B54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B37A117-A098-4DBF-A523-CA47DEB8B54C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F17F6733-5E98-431F-B3E4-1E7601D2A2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17F6733-5E98-431F-B3E4-1E7601D2A2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17F6733-5E98-431F-B3E4-1E7601D2A2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17F6733-5E98-431F-B3E4-1E7601D2A2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF8B2F9E-2349-462E-9DCC-CDB7A763D94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8B2F9E-2349-462E-9DCC-CDB7A763D94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8B2F9E-2349-462E-9DCC-CDB7A763D94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8B2F9E-2349-462E-9DCC-CDB7A763D94B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7024134-4ECD-49A4-89F8-71AB2B39643F}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
