@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace CodeFix
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var points = new List<Point>(Enumerable.Range(1, 10).Select(p => new Point()));
             foreach (var p in points)

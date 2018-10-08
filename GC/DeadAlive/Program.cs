@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace DeadAlive
 {
-    class Program
+    internal class Program
     {
         public static ICollection<object> _pool = new HashSet<object>();
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("The magic begins..");
 
