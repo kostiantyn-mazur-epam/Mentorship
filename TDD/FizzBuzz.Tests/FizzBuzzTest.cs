@@ -32,7 +32,7 @@ namespace FizzBuzz.Tests
         [TestMethod]
         public void GetResult_NegativeNumber_ShouldReturnZeroString()
         {
-            Assert.AreEqual("0", FizzBuzz.GetResult(-15));
+            Assert.AreEqual(string.Empty, FizzBuzz.GetResult(-15));
         }
     }
 }

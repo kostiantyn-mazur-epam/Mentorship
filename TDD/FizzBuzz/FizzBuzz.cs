@@ -26,7 +26,7 @@ namespace FizzBuzz
                 return number.ToString();
             }
 
-            return "0";
+            return "";
         }
     }
 }
