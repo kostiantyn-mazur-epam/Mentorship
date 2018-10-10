@@ -27,7 +27,7 @@ namespace ConsoleEvent
         {
             if (error == null)
             {
-                throw new ArgumentNullException(nameof(error), "No error");
+                throw new ArgumentNullException(nameof(error));
             }
 
             Console.WriteLine("Something wrong happened");
