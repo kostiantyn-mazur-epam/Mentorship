@@ -8,21 +8,12 @@ namespace ConsoleEvent
         {
             Console.WriteLine("Time to write something to console");
 
-            var listener = new ConsoleEventListener();
-            listener.Quit += ShowMessage;
+            var watcher = new ConsoleQuitMessageSource ();
+            var listener = new ConsoleQuitMessageListener();
+            listener.Subscribe(watcher);
 
-            for (var i = 0; i < 5; i++)
-            {
-                if (Console.ReadLine() == "quit")
-                {
-                    listener.Raise();
-                }
-            }
-        }
-
-        private static void ShowMessage(string message)
-        {
-            Console.WriteLine(message);
+            watcher.WatchConsole();
+            watcher.Stop();
         }
     }
 }
