@@ -41,9 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleEvent", "Patterns\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockExchange.Delegates", "Patterns\StockExchange.Delegates\StockExchange.Delegates.csproj", "{EC9A1C48-DC7E-40C3-A3A2-5DE4C8235951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.Events", "Patterns\StockExchange.Events\StockExchange.Events.csproj", "{611D5B02-F29C-42BC-A628-C73D58B789F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockExchange.Events", "Patterns\StockExchange.Events\StockExchange.Events.csproj", "{611D5B02-F29C-42BC-A628-C73D58B789F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.Interfaces", "Patterns\StockExchange.Interfaces\StockExchange.Interfaces.csproj", "{7D6F3E74-771C-44AA-97FF-83D35A5B1364}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockExchange.Interfaces", "Patterns\StockExchange.Interfaces\StockExchange.Interfaces.csproj", "{7D6F3E74-771C-44AA-97FF-83D35A5B1364}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorDecorator", "Patterns\CalculatorDecorator\CalculatorDecorator.csproj", "{F676883E-FC33-4192-B423-742A954A4F2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{7D6F3E74-771C-44AA-97FF-83D35A5B1364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D6F3E74-771C-44AA-97FF-83D35A5B1364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D6F3E74-771C-44AA-97FF-83D35A5B1364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
