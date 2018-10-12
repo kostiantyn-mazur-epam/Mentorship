@@ -45,7 +45,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockExchange.Events", "Pat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockExchange.Interfaces", "Patterns\StockExchange.Interfaces\StockExchange.Interfaces.csproj", "{7D6F3E74-771C-44AA-97FF-83D35A5B1364}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorDecorator", "Patterns\Calculator_2\CalculatorDecorator.csproj", "{9AFE6FEE-1C6F-4453-B478-1B54BFF00FB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorDecorator", "Patterns\CalculatorDecorator\CalculatorDecorator.csproj", "{F676883E-FC33-4192-B423-742A954A4F2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,10 +137,10 @@ Global
 		{7D6F3E74-771C-44AA-97FF-83D35A5B1364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D6F3E74-771C-44AA-97FF-83D35A5B1364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D6F3E74-771C-44AA-97FF-83D35A5B1364}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AFE6FEE-1C6F-4453-B478-1B54BFF00FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AFE6FEE-1C6F-4453-B478-1B54BFF00FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AFE6FEE-1C6F-4453-B478-1B54BFF00FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AFE6FEE-1C6F-4453-B478-1B54BFF00FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F676883E-FC33-4192-B423-742A954A4F2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
