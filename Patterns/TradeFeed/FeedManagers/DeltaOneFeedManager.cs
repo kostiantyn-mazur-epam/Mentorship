@@ -19,7 +19,7 @@ namespace TradeFeed
 
             id = trade.Counterpartyid + trade.PrincipalId;
 
-            return _uvarAccounts.ContainsKey(id);
+            return UvarAccounts.ContainsKey(id);
         }
 
         protected override void SaveTrade(TradeFeedItemBase trade)

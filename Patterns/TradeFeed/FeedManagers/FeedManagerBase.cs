@@ -6,11 +6,10 @@ namespace TradeFeed
 {
     internal abstract class FeedManagerBase : IFeedManager
     {
-        protected Dictionary<int, string> _validationErrors = new Dictionary<int, string>();
-        protected List<TradeFeedItemBase> _validatedFeed = new List<TradeFeedItemBase>();
-        protected IDictionary<int, UvarAccount> _uvarAccounts;
-
-        private IReadOnlyCollection<TradeFeedItemBase> _incomingFeed;
+        private readonly Dictionary<int, string> _validationErrors = new Dictionary<int, string>();
+        private readonly List<TradeFeedItemBase> _validatedFeed = new List<TradeFeedItemBase>();
+        private readonly IDictionary<int, UvarAccount> _uvarAccounts;
+        private readonly IReadOnlyCollection<TradeFeedItemBase> _incomingFeed;
 
         protected FeedManagerBase(IReadOnlyCollection<TradeFeedItemBase> incomingFeed, IDictionary<int, UvarAccount> uvarAccounts)
         {
@@ -72,5 +71,10 @@ namespace TradeFeed
         protected abstract bool MatchItem(TradeFeedItemBase trade, out int id);
 
         protected abstract void SaveTrade(TradeFeedItemBase trade);
+
+        protected IDictionary<int, UvarAccount> UvarAccounts
+        {
+            get => _uvarAccounts;
+        }
     }
 }
