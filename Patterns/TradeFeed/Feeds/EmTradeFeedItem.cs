@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TradeFeed.Feeds
+﻿namespace TradeFeed.Feeds
 {
     internal sealed class EmTradeFeedItem : TradeFeedItemBase
     {

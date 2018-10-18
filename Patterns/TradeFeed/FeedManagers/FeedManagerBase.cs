@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace TradeFeed
 {
@@ -35,7 +36,7 @@ namespace TradeFeed
 
             foreach (var trade in incomingFeed)
             {
-                if (trade.ValuationDate < DateTime.Now.AddDays(-7) && trade.CurrentPrice < 0)
+                if ((trade.ValuationDate < DateTime.UtcNow.AddDays(-7)) && (trade.CurrentPrice < 0))
                 {
                     _validationErrors.TryAdd(trade.StagingId, "Trade didn't pass validation");
                 }
@@ -48,7 +49,7 @@ namespace TradeFeed
 
         private int CreateNewAccount(int id)
         {
-            _uvarAccounts.Add(id, new UvarAccount(id, string.Format("UVAR{0}", id)));
+            _uvarAccounts.Add(id, new UvarAccount(id, string.Format(CultureInfo.InvariantCulture, "UVAR{0}", id)));
 
             return id;
         }
@@ -69,6 +70,7 @@ namespace TradeFeed
         }
 
         protected abstract bool MatchItem(TradeFeedItemBase trade, out int id);
+
         protected abstract void SaveTrade(TradeFeedItemBase trade);
     }
 }

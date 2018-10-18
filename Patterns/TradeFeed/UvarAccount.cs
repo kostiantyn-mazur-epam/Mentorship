@@ -1,4 +1,6 @@
-﻿namespace TradeFeed
+﻿using System;
+
+namespace TradeFeed
 {
     internal sealed class UvarAccount
     {
@@ -6,7 +8,7 @@
         {
             if (name == null)
             {
-                throw new System.ArgumentNullException(nameof(name));
+                throw new ArgumentNullException(nameof(name));
             }
 
             Id = id;
