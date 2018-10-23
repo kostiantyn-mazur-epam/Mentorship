@@ -53,7 +53,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculationService", "Patte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeFeed", "Patterns\TradeFeed\TradeFeed.csproj", "{844D0BC1-6545-4FCC-98FE-0D2A3AA560CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceContext", "Patterns\ServiceContext\ServiceContext.csproj", "{BAAFB718-0DF9-4907-9E5F-CB7A2EF4321E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceContext", "Patterns\ServiceContext\ServiceContext.csproj", "{BAAFB718-0DF9-4907-9E5F-CB7A2EF4321E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adapter", "Patterns\Adapter\Adapter\Adapter.csproj", "{04675C9D-12CC-4A55-BCC2-E72A75F6F647}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +167,10 @@ Global
 		{BAAFB718-0DF9-4907-9E5F-CB7A2EF4321E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAAFB718-0DF9-4907-9E5F-CB7A2EF4321E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAAFB718-0DF9-4907-9E5F-CB7A2EF4321E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04675C9D-12CC-4A55-BCC2-E72A75F6F647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04675C9D-12CC-4A55-BCC2-E72A75F6F647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04675C9D-12CC-4A55-BCC2-E72A75F6F647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04675C9D-12CC-4A55-BCC2-E72A75F6F647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
