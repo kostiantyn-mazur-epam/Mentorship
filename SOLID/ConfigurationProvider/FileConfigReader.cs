@@ -20,10 +20,12 @@ namespace ConfigurationProvider
         public string Read()
         {
             var fileName = string.Format("{0}.cfg", _environmentName);
+            var path = Directory.GetCurrentDirectory();
+            var filePath = Path.Combine(path, fileName);
 
-            if (File.Exists(fileName))
+            if (File.Exists(filePath))
             {
-                using (var reader = new StreamReader(fileName))
+                using (var reader = new StreamReader(filePath))
                 {
                     return reader.ReadToEnd();
                 }
