@@ -12,8 +12,7 @@ namespace ConfigurationProvider.Example
 
             var environmentName = "Dev";
             var filePath = Directory.GetCurrentDirectory();
-            var fileExtension = ".cfg";
-            var fileReader = new FileConfigReader(environmentName, filePath, fileExtension);
+            var fileReader = new FileConfigReader(environmentName, filePath);
             var configContent = fileReader.Read();
             var configProvider = new CustomConfigurationProvider();
             configProvider.Initialize(configContent);

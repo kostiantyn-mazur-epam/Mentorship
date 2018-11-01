@@ -7,9 +7,9 @@ namespace ConfigurationProvider
     {
         private readonly string _environmentName;
         private readonly string _filePath;
-        private readonly string _fileExtension;
+        private const string _fileExtension = ".cfg";
 
-        public FileConfigReader(string environmentName, string filePath, string fileExtension)
+        public FileConfigReader(string environmentName, string filePath)
         {
             if (environmentName == null)
             {
@@ -21,14 +21,8 @@ namespace ConfigurationProvider
                 throw new ArgumentNullException(nameof(filePath));
             }
 
-            if (fileExtension == null)
-            {
-                throw new ArgumentNullException(nameof(fileExtension));
-            }
-
             _environmentName = environmentName;
             _filePath = filePath;
-            _fileExtension = fileExtension;
         }
 
         public string Read()
