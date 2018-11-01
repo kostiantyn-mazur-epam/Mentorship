@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace ConfigurationProvider.Example
 {
@@ -10,7 +11,9 @@ namespace ConfigurationProvider.Example
             Console.WriteLine();
 
             var environmentName = "Dev";
-            var fileReader = new FileConfigReader(environmentName);
+            var filePath = Directory.GetCurrentDirectory();
+            var fileExtension = ".cfg";
+            var fileReader = new FileConfigReader(environmentName, filePath, fileExtension);
             var configContent = fileReader.Read();
             var configProvider = new CustomConfigurationProvider();
             configProvider.Initialize(configContent);
