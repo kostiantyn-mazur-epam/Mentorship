@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
+
+//bad name of a files and of course the namespace
 namespace LinkedList
 {
     public struct LinkedListEnumerator<T> : IEnumerator<T>

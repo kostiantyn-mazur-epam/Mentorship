@@ -2,10 +2,9 @@
 {
     internal sealed class LinkedListNode<T>
     {
-        public T Item
-        {
-            get; set;
-        }
+        // I would recommend to write autoproperty in one line
+        public T Item { get; set; }
+
         public LinkedListNode<T> Next
         {
             get; set;
