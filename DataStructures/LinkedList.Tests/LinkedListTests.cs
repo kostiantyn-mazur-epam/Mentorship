@@ -293,6 +293,23 @@ namespace LinkedList.Tests
             Assert.AreEqual(3, list.ElementAt(1));
         }
 
+        //throws NullReferenceException!!!!!
+        [TestMethod]
+        public void RemoveAt_Item_ShouldRemoveNodeAtPosition1FromListOf4()
+        {
+            var list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+
+            list.RemoveAt(1);
+            list.Add(4);
+
+            Assert.AreEqual(3, list.Length);
+            Assert.AreEqual(3, list.ElementAt(1));
+            Assert.AreEqual(4, list.ElementAt(2));
+        }
+
         [TestMethod]
         public void RemoveAt_Item_ShouldRemoveNodeAtPosition0FromListOf2()
         {

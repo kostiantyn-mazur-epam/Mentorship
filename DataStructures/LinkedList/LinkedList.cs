@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
+//bad namespace
 namespace LinkedList
 {
     public sealed class LinkedList<T>
@@ -91,6 +93,7 @@ namespace LinkedList
             }
             else
             {
+                //code duplication. see: AddAt
                 var positionAt = _head;
                 if ((_size - position) >= (position + 2))
                 {
@@ -179,6 +182,7 @@ namespace LinkedList
             }
             else
             {
+                //code duplication. see: AddAt, RemoveAt
                 var positionAt = _head;
                 if ((_size - position) >= (position + 2))
                 {
@@ -201,6 +205,8 @@ namespace LinkedList
             }
         }
 
+
+        //Probably it's better to inherite IEnumerable<T>. Alghouth it's not nessesary 
         public LinkedListEnumerator<T> GetEnumerator()
         {
             return new LinkedListEnumerator<T>(_head);
