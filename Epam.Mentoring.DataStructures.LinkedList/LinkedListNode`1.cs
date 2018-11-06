@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.DataStructures.LinkedList
+﻿namespace Epam.Mentoring.DataStructures
 {
     internal sealed class LinkedListNode<T>
     {

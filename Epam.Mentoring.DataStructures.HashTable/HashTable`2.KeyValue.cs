@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.DataStructures.HashTable
+﻿namespace Epam.Mentoring.DataStructures
 {
     public partial class HashTable<TKey, TValue>
     {

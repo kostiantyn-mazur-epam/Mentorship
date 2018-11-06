@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Epam.Mentoring.DataStructures.HashTable.Tests
+namespace Epam.Mentoring.DataStructures.Tests
 {
     [TestClass]
-    public class HashTableTests
+    public sealed class HashTableTests
     {
         [TestMethod]
         public void Add_ShouldAddSingleItemToEmptyHashtable()
@@ -36,6 +36,7 @@ namespace Epam.Mentoring.DataStructures.HashTable.Tests
         public void Add_ShouldThrowWhenAddExistingKeyToHashtable()
         {
             var table = new HashTable();
+
             table.Add("key", "value");
 
             Assert.ThrowsException<ArgumentException>(() => table.Add("key", "test"));
@@ -53,6 +54,7 @@ namespace Epam.Mentoring.DataStructures.HashTable.Tests
         public void IndexerGet_ShouldReturnValueWhenKeyExistsInHashtable()
         {
             var table = new HashTable();
+
             table.Add("key", "value");
 
             Assert.AreEqual("value", table["key"]);
@@ -72,6 +74,7 @@ namespace Epam.Mentoring.DataStructures.HashTable.Tests
         public void IndexerSet_ShouldSetValueWhenKeyIsFoundInHashtable()
         {
             var table = new HashTable();
+
             table.Add("key", "value");
 
             table["key"] = "test";
@@ -83,6 +86,7 @@ namespace Epam.Mentoring.DataStructures.HashTable.Tests
         public void IndexerSet_ShouldDeleteExistingItemFromHashtableWhenTryingToSetNull()
         {
             var table = new HashTable();
+
             table.Add("key", "value");
 
             table["key"] = null;
@@ -94,6 +98,7 @@ namespace Epam.Mentoring.DataStructures.HashTable.Tests
         public void Contains_ShouldReturnTrueWhenKeyExistsInHashtable()
         {
             var table = new HashTable();
+
             table.Add("key", "value");
 
             Assert.AreEqual(true, table.Contains("key"));
@@ -120,6 +125,7 @@ namespace Epam.Mentoring.DataStructures.HashTable.Tests
         public void TryGet_ShouldReturnTrueAndValueWhenKeyExistsInHashtable()
         {
             var table = new HashTable();
+
             table.Add("key", "value");
 
             Assert.AreEqual(true, table.TryGet("key", out var value));

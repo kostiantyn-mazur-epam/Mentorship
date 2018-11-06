@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Epam.Mentoring.DataStructures.HashTable
+namespace Epam.Mentoring.DataStructures
 {
     public abstract partial class HashTable<TKey, TValue>
         where TValue : class

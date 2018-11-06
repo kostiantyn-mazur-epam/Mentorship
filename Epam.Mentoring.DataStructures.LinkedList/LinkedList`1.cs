@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
-namespace Epam.Mentoring.DataStructures.LinkedList
+namespace Epam.Mentoring.DataStructures
 {
-    public sealed class LinkedList<T>
+    public sealed class LinkedList<T> : IEnumerable<T>
     {
         private int _size;
         private LinkedListNode<T> _head;
@@ -26,6 +27,7 @@ namespace Epam.Mentoring.DataStructures.LinkedList
             else
             {
                 var newTail = new LinkedListNode<T>();
+
                 newTail.Item = item;
                 newTail.Prev = _tail;
                 _tail.Next = newTail;
@@ -47,24 +49,13 @@ namespace Epam.Mentoring.DataStructures.LinkedList
             }
             else
             {
-                var positionAt = _head;
                 if ((_size - position) >= (position + 2))
                 {
-
-                    for (var i = 0; i < position; i++)
-                    {
-                        positionAt = positionAt.Next;
-                    }
-                    InsertAt(item, positionAt);
+                    InsertAt(item, ForwardTraversal(_head, position));
                 }
                 else
                 {
-                    positionAt = _tail;
-                    for (var i = _size - 1; i > position; i--)
-                    {
-                        positionAt = positionAt.Prev;
-                    }
-                    InsertAt(item, positionAt);
+                    InsertAt(item, BackwardTraversal(_tail, position, _size));
                 }
             }
         }
@@ -72,13 +63,16 @@ namespace Epam.Mentoring.DataStructures.LinkedList
         public void Remove(T item)
         {
             var current = _head;
+
             while (current != null)
             {
                 if (EqualityComparer<T>.Default.Equals(current.Item, item))
                 {
                     DeleteNode(current);
+
                     break;
                 }
+
                 current = current.Next;
             }
         }
@@ -91,24 +85,13 @@ namespace Epam.Mentoring.DataStructures.LinkedList
             }
             else
             {
-                var positionAt = _head;
                 if ((_size - position) >= (position + 2))
                 {
-
-                    for (var i = 0; i < position; i++)
-                    {
-                        positionAt = positionAt.Next;
-                    }
-                    DeleteNode(positionAt);
+                    DeleteNode(ForwardTraversal(_head, position));
                 }
                 else
                 {
-                    positionAt = _tail;
-                    for (var i = _size - 1; i > position; i--)
-                    {
-                        positionAt = positionAt.Prev;
-                    }
-                    DeleteNode(positionAt);
+                    DeleteNode(BackwardTraversal(_tail, position, _size));
                 }
             }
         }
@@ -116,6 +99,7 @@ namespace Epam.Mentoring.DataStructures.LinkedList
         private void InsertAt(T item, LinkedListNode<T> node)
         {
             var newNode = new LinkedListNode<T>();
+
             newNode.Item = item;
             newNode.Next = node;
 
@@ -128,6 +112,7 @@ namespace Epam.Mentoring.DataStructures.LinkedList
                 newNode.Prev = node.Prev;
                 node.Prev.Next = newNode;
             }
+
             node.Prev = newNode;
             _size++;
         }
@@ -157,14 +142,33 @@ namespace Epam.Mentoring.DataStructures.LinkedList
             _size--;
         }
 
+        private static LinkedListNode<T> ForwardTraversal(LinkedListNode<T> node, int position)
+        {
+            for (var i = 0; i < position; i++)
+            {
+                node = node.Next;
+            }
+
+            return node;
+        }
+
+        private static LinkedListNode<T> BackwardTraversal(LinkedListNode<T> node, int position, int size)
+        {
+            for (var i = size - 1; i > position; i--)
+            {
+                node = node.Prev;
+            }
+
+            return node;
+        }
+
         public T ElementAt(int position)
         {
             if (_size == 0)
             {
                 throw new InvalidOperationException("The list is empty");
             }
-
-            if (position < 0 || position > (_size - 1))
+            if ((position < 0) || (position > (_size - 1)))
             {
                 throw new ArgumentOutOfRangeException(nameof(position), position, "Incorrect position");
             }
@@ -179,31 +183,25 @@ namespace Epam.Mentoring.DataStructures.LinkedList
             }
             else
             {
-                var positionAt = _head;
                 if ((_size - position) >= (position + 2))
                 {
-
-                    for (var i = 0; i < position; i++)
-                    {
-                        positionAt = positionAt.Next;
-                    }
-                    return positionAt.Item;
+                    return ForwardTraversal(_head, position).Item;
                 }
                 else
                 {
-                    positionAt = _tail;
-                    for (var i = _size; i > 0; i--)
-                    {
-                        positionAt = positionAt.Prev;
-                    }
-                    return positionAt.Item;
+                    return BackwardTraversal(_tail, position, _size).Item;
                 }
             }
         }
 
-        public LinkedListEnumerator<T> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return new LinkedListEnumerator<T>(_head);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
