@@ -1,6 +1,6 @@
-﻿using Epam.Mentoring.MemoryManagement.GC.Zoo.Animals;
+﻿using Epam.Mentoring.MemoryManagement.GC.Animals;
 
-namespace Epam.Mentoring.MemoryManagement.GC.Zoo
+namespace Epam.Mentoring.MemoryManagement.GC
 {
     public interface IAnimalStatusTracker
     {

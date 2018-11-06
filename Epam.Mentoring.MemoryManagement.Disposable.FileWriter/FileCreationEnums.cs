@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Epam.Mentoring.MemoryManagement.Disposable.FileWriter
+namespace Epam.Mentoring.MemoryManagement.Disposable
 {
     /// <summary>
     /// Access type to device or file

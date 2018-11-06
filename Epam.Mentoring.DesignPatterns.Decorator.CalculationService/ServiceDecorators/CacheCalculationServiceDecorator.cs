@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Epam.Mentoring.DesignPatterns.Adapter.ServiceDecorators
+namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
 {
     internal sealed class CacheCalculationServiceDecorator : CalculationServiceDecoratorBase
     {

@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using Microsoft.Win32.SafeHandles;
 
-namespace Epam.Mentoring.MemoryManagement.Disposable.FileWriter
+namespace Epam.Mentoring.MemoryManagement.Disposable
 {
     public class FileWriter : IFileWriter, IDisposable
     {

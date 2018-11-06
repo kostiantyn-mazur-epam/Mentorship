@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Epam.Mentoring.DesignPatterns.Adapter
+namespace Epam.Mentoring.DesignPatterns.Decorator
 {
     internal sealed class CalculationService : ICalculationService
     {

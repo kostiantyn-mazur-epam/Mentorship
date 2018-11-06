@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.MemoryManagement.GC.Zoo
+﻿namespace Epam.Mentoring.MemoryManagement.GC
 {
     //Subject
     public interface ILiveTicker

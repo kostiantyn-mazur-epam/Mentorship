@@ -1,5 +1,4 @@
-﻿
-namespace Epam.Mentoring.MemoryManagement.GC.Zoo
+﻿namespace Epam.Mentoring.MemoryManagement.GC
 {
     //Does not follow design pattern, but will simplify the code    
     public static class AnimalIdGenerator
@@ -18,6 +17,5 @@ namespace Epam.Mentoring.MemoryManagement.GC.Zoo
 
             return resId;
         }
-         
     }
 }

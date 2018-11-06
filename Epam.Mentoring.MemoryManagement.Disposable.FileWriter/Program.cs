@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Epam.Mentoring.MemoryManagement.Disposable.FileWriter
+namespace Epam.Mentoring.MemoryManagement.Disposable
 {
     public static class Program
     {

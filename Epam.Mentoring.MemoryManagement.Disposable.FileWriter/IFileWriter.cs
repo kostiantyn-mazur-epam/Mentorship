@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.MemoryManagement.Disposable.FileWriter
+﻿namespace Epam.Mentoring.MemoryManagement.Disposable
 {
     public interface IFileWriter
     {

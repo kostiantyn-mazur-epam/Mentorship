@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Epam.Mentoring.MemoryManagement.GC.Zoo
+namespace Epam.Mentoring.MemoryManagement.GC
 {
     public class EarthLiveTicker: ILiveTicker
     {

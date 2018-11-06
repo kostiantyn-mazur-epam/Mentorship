@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Epam.Mentoring.MemoryManagement.GC.Zoo
+namespace Epam.Mentoring.MemoryManagement.GC
 {
     public static class Program
     {

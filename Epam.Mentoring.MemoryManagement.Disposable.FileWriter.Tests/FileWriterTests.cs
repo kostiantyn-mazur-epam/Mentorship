@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace Epam.Mentoring.MemoryManagement.Disposable.FileWriter.Tests
+namespace Epam.Mentoring.MemoryManagement.Disposable.Tests
 {
     [TestClass]
     public class FileWriterTests

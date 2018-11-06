@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace Epam.Mentoring.UnitTesting.Katas.StringCalculator
+namespace Epam.Mentoring.UnitTesting.Katas
 {
     public static class StringCalculator
     {

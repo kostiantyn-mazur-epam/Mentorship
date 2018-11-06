@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Epam.Mentoring.UnitTesting.Katas.StringSum.Tests
+namespace Epam.Mentoring.UnitTesting.Katas.Tests
 {
     [TestClass]
     public class StringSumTests

@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
+    <RootNamespace>Epam.Mentoring.MemoryManagement.GC</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Configuration" />
