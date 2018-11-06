@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.UnitTesting.Katas.StringSum
+﻿namespace Epam.Mentoring.UnitTesting.Katas
 {
     public static class StringSum
     {

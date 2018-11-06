@@ -1,7 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Epam.Mentoring.UnitTesting.Katas.StringCalculator.Tests
+namespace Epam.Mentoring.UnitTesting.Katas.Tests
 {
     [TestClass]
     public class StringCalculatorTests

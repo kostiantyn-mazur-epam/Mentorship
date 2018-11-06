@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.MemoryManagement.GC.Zoo.Animals
+﻿namespace Epam.Mentoring.MemoryManagement.GC.Animals
 {
     //Inheriting IDisposable is overdesign, but every our animal needs to be disposed!!!
     public interface IAnimal//: IDisposable

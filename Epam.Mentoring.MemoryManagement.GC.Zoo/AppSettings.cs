@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Epam.Mentoring.MemoryManagement.GC.Zoo
+namespace Epam.Mentoring.MemoryManagement.GC
 {
     public static class AppSettings
     {

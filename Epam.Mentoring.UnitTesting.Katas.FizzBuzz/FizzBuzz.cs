@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.UnitTesting.Katas.FizzBuzz
+﻿namespace Epam.Mentoring.UnitTesting.Katas
 {
     public static class FizzBuzz
     {

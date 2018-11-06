@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Epam.Mentoring.MemoryManagement.GC.Resurrection.Static
 {
-    internal class DeadAlive
+    internal sealed class DeadAlive
     {
         private readonly ICollection<object> _pool;
 

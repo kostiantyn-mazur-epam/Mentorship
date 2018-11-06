@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Epam.Mentoring.UnitTesting.Katas.FizzBuzz.Tests
+namespace Epam.Mentoring.UnitTesting.Katas.Tests
 {
     [TestClass]
     public class FizzBuzzTest

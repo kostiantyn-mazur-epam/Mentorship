@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.DesignPatterns.Adapter
+﻿namespace Epam.Mentoring.DesignPatterns.Decorator
 {
     internal interface ICalculationService
     {

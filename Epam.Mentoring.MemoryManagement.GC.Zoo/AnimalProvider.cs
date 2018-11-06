@@ -1,7 +1,7 @@
 ﻿using System;
-using Epam.Mentoring.MemoryManagement.GC.Zoo.Animals;
+using Epam.Mentoring.MemoryManagement.GC.Animals;
 
-namespace Epam.Mentoring.MemoryManagement.GC.Zoo
+namespace Epam.Mentoring.MemoryManagement.GC
 {
     public class AnimalProvider: ITickListener
     {
@@ -99,7 +99,6 @@ namespace Epam.Mentoring.MemoryManagement.GC.Zoo
                 _lastGeneration = 0;
                 OnGeneration();
             }
-
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Epam.Mentoring.MemoryManagement.GC.Resurrection.NoStatic
 {
-    internal class Zombie
+    internal sealed class Zombie
     {
         private string _payload;
 
