@@ -61,7 +61,7 @@ namespace Epam.Mentoring.DataStructures
         {
             if (Contains(key))
             {
-                throw new ArgumentException(nameof(key), "The key already exists");
+                throw new ArgumentException("The key already exists", nameof(key));
             }
 
             InternalAdd(key, value);
