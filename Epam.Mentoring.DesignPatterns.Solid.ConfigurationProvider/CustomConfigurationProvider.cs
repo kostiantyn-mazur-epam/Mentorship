@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ConfigurationProvider
+namespace Epam.Mentoring.DesignPatterns.Solid
 {
     public sealed class CustomConfigurationProvider : ConfigurationProvider
     {

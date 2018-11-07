@@ -1,4 +1,4 @@
-﻿namespace ConfigurationProvider
+﻿namespace Epam.Mentoring.DesignPatterns.Solid
 {
     public abstract class ConfigurationProvider : IConfigurationProvider
     {

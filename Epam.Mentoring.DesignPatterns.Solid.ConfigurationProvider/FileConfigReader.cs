@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace ConfigurationProvider
+namespace Epam.Mentoring.DesignPatterns.Solid
 {
     public class FileConfigReader : IConfigReader
     {

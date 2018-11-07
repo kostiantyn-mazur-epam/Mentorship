@@ -1,7 +1,6 @@
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ConfigurationProvider.Tests
+namespace Epam.Mentoring.DesignPatterns.Solid.Tests
 {
     [TestClass]
     public class ConfigurationProviderTests
@@ -12,7 +11,7 @@ namespace ConfigurationProvider.Tests
             var serviceSettings = new ServiceSettings();
             serviceSettings.ConnectionString = "sqlserver/dba";
             var configProvider = new CustomConfigurationProvider();
-            configProvider.Initialize("ConfigurationProvider.ServiceSettings.ConnectionString=sqlserver/dba");
+            configProvider.Initialize("Epam.Mentoring.DesignPatterns.Solid.ServiceSettings.ConnectionString=sqlserver/dba");
 
             var settings = configProvider.Get<ServiceSettings>();
 
@@ -38,7 +37,7 @@ namespace ConfigurationProvider.Tests
             var serviceSettings = new ServiceSettings();
             serviceSettings.Port = 4563;
             var configProvider = new CustomConfigurationProvider();
-            configProvider.Initialize("ConfigurationProvider.ServiceSettings.Port=4563");
+            configProvider.Initialize("Epam.Mentoring.DesignPatterns.Solid.ServiceSettings.Port=4563");
 
             var settings = configProvider.Get<ServiceSettings>();
 

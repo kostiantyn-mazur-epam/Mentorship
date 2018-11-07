@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 
-namespace ConfigurationProvider.Example
+namespace Epam.Mentoring.DesignPatterns.Solid.Example
 {
-    internal class Program
+    public static class Program
     {
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("ConfigurationProvider Example");
             Console.WriteLine();

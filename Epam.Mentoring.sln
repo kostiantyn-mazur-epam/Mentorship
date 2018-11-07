@@ -11,13 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.DataStructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.DataStructures.HashTable.Tests", "Epam.Mentoring.DataStructures.HashTable.Tests\Epam.Mentoring.DataStructures.HashTable.Tests.csproj", "{322AE00C-2F42-40B3-83B7-1169E5085C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Mentoring.MemoryManagement.Disposable.CodeFix", "Epam.Mentoring.MemoryManagement.Disposable.CodeFix\Epam.Mentoring.MemoryManagement.Disposable.CodeFix.csproj", "{416509EB-A2DC-4CB6-87CC-4F44C20380F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.MemoryManagement.Disposable.CodeFix", "Epam.Mentoring.MemoryManagement.Disposable.CodeFix\Epam.Mentoring.MemoryManagement.Disposable.CodeFix.csproj", "{416509EB-A2DC-4CB6-87CC-4F44C20380F0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.MemoryManagement.Disposable.FileWriter", "Epam.Mentoring.MemoryManagement.Disposable.FileWriter\Epam.Mentoring.MemoryManagement.Disposable.FileWriter.csproj", "{AB167933-FC43-480E-968F-6F0738C09F6E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.MemoryManagement.Disposable.FileWriter.Tests", "Epam.Mentoring.MemoryManagement.Disposable.FileWriter.Tests\Epam.Mentoring.MemoryManagement.Disposable.FileWriter.Tests.csproj", "{A9363C11-EA72-448B-A213-DF50CE107DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.Mentoring.MemoryManagement.GC.Zoo", "Epam.Mentoring.MemoryManagement.GC.Zoo\Epam.Mentoring.MemoryManagement.GC.Zoo.csproj", "{9503142D-1CE8-42CB-8884-303F01E3B66C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.MemoryManagement.GC.Zoo", "Epam.Mentoring.MemoryManagement.GC.Zoo\Epam.Mentoring.MemoryManagement.GC.Zoo.csproj", "{9503142D-1CE8-42CB-8884-303F01E3B66C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.MemoryManagement.GC.Resurrection.Static", "Epam.Mentoring.MemoryManagement.GC.Resurrection.Static\Epam.Mentoring.MemoryManagement.GC.Resurrection.Static.csproj", "{B5A71C0F-D540-47F6-82D4-727EDF6EEF5E}"
 EndProject
@@ -67,11 +67,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTesting", "UnitTesting"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{D6BD82FE-260D-49F2-9293-E9A062541ECF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationProvider", "SOLID\ConfigurationProvider\ConfigurationProvider.csproj", "{A4FA3831-FF1D-4884-B714-D2711C1A394D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider", "Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider\Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.csproj", "{A4FA3831-FF1D-4884-B714-D2711C1A394D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationProvider.Tests", "SOLID\ConfigurationProvider.Tests\ConfigurationProvider.Tests.csproj", "{F0754AB4-B2C0-4089-8860-1F5AE9EDD4EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.Tests", "Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.Tests\Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.Tests.csproj", "{F0754AB4-B2C0-4089-8860-1F5AE9EDD4EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationProvider.Example", "SOLID\ConfigurationProvider.Example\ConfigurationProvider.Example.csproj", "{EC634ECA-E29A-4AFC-8927-D609829D7567}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.Example", "Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.Example\Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.Example.csproj", "{EC634ECA-E29A-4AFC-8927-D609829D7567}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -236,6 +236,9 @@ Global
 		{BAAFB718-0DF9-4907-9E5F-CB7A2EF4321E} = {D6BD82FE-260D-49F2-9293-E9A062541ECF}
 		{04675C9D-12CC-4A55-BCC2-E72A75F6F647} = {D6BD82FE-260D-49F2-9293-E9A062541ECF}
 		{785092ED-44B2-4840-A19B-24F9BE874136} = {D6BD82FE-260D-49F2-9293-E9A062541ECF}
+		{A4FA3831-FF1D-4884-B714-D2711C1A394D} = {D6BD82FE-260D-49F2-9293-E9A062541ECF}
+		{F0754AB4-B2C0-4089-8860-1F5AE9EDD4EC} = {D6BD82FE-260D-49F2-9293-E9A062541ECF}
+		{EC634ECA-E29A-4AFC-8927-D609829D7567} = {D6BD82FE-260D-49F2-9293-E9A062541ECF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7024134-4ECD-49A4-89F8-71AB2B39643F}

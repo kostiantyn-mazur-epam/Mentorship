@@ -1,4 +1,4 @@
-﻿namespace ConfigurationProvider
+﻿namespace Epam.Mentoring.DesignPatterns.Solid
 {
     public sealed class ServiceSettings
     {
