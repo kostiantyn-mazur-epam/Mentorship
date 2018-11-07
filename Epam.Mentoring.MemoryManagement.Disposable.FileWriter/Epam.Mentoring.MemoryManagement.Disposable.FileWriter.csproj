@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>Epam.Mentoring.MemoryManagement.Disposable</RootNamespace>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+</Project>
