@@ -7,28 +7,28 @@ namespace Epam.Mentoring.DataStructures
         where TValue : class
     {
         private const int _size = 512;
-        private LinkedList<KeyValue>[] _slots = new LinkedList<KeyValue>[_size];
+        private LinkedList<KeyValue>[] _buckets = new LinkedList<KeyValue>[_size];
 
-        private int GetSlotIndex(TKey key)
+        private int GetBucketIndex(TKey key)
         {
             return Math.Abs(key.GetHashCode()) % _size;
         }
 
-        private void UnsafeAdd(TKey key, TValue value)
+        private void InternalAdd(TKey key, TValue value)
         {
-            var index = GetSlotIndex(key);
-            var slot = new LinkedList<KeyValue>();
+            var index = GetBucketIndex(key);
+            var bucket = new LinkedList<KeyValue>();
 
-            slot.AddLast(new KeyValue(key, value));
+            bucket.AddLast(new KeyValue(key, value));
 
-            _slots[index] = slot;
+            _buckets[index] = bucket;
         }
 
-        private void UnsafeSet(TKey key, TValue value)
+        private void InternalSet(TKey key, TValue value)
         {
             if (value == null)
             {
-                _slots[GetSlotIndex(key)].Remove(Find(key));
+                _buckets[GetBucketIndex(key)].Remove(Find(key));
             }
             else
             {
@@ -38,19 +38,19 @@ namespace Epam.Mentoring.DataStructures
 
         private KeyValue Find(TKey key)
         {
-            var index = GetSlotIndex(key);
-            var slot = _slots[index];
+            var index = GetBucketIndex(key);
+            var bucket = _buckets[index];
 
-            if (slot == null)
+            if (bucket == null)
             {
                 return null;
             }
 
-            foreach (var item in slot)
+            foreach (var keyValue in bucket)
             {
-                if (EqualityComparer<TKey>.Default.Equals(item.Key, key))
+                if (EqualityComparer<TKey>.Default.Equals(keyValue.Key, key))
                 {
-                    return item;
+                    return keyValue;
                 }
             }
 
@@ -61,25 +61,25 @@ namespace Epam.Mentoring.DataStructures
         {
             if (Contains(key))
             {
-                throw new ArgumentException(nameof(key), "The key already exists");
+                throw new ArgumentException("The key already exists", nameof(key));
             }
 
-            UnsafeAdd(key, value);
+            InternalAdd(key, value);
         }
 
         public bool Contains(TKey key)
         {
-            var index = GetSlotIndex(key);
-            var slot = _slots[index];
+            var index = GetBucketIndex(key);
+            var bucket = _buckets[index];
 
-            if (slot == null)
+            if (bucket == null)
             {
                 return false;
             }
 
-            foreach (var item in slot)
+            foreach (var keyValue in bucket)
             {
-                if (EqualityComparer<TKey>.Default.Equals(item.Key, key))
+                if (EqualityComparer<TKey>.Default.Equals(keyValue.Key, key))
                 {
                     return true;
                 }
@@ -92,19 +92,19 @@ namespace Epam.Mentoring.DataStructures
         {
             value = default;
 
-            var index = GetSlotIndex(key);
-            var slot = _slots[index];
+            var index = GetBucketIndex(key);
+            var bucket = _buckets[index];
 
-            if (slot == null)
+            if (bucket == null)
             {
                 return false;
             }
 
-            foreach (var item in _slots[index])
+            foreach (var keyValue in bucket)
             {
-                if (EqualityComparer<TKey>.Default.Equals(item.Key, key))
+                if (EqualityComparer<TKey>.Default.Equals(keyValue.Key, key))
                 {
-                    value = item.Value;
+                    value = keyValue.Value;
 
                     return true;
                 }
@@ -127,11 +127,11 @@ namespace Epam.Mentoring.DataStructures
             {
                 if (!Contains(key))
                 {
-                    UnsafeAdd(key, value);
+                    InternalAdd(key, value);
                 }
                 else
                 {
-                    UnsafeSet(key, value);
+                    InternalSet(key, value);
                 }
             }
         }
