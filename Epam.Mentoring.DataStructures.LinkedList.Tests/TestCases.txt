@@ -170,63 +170,73 @@
    - Call "RemoveAt" method with parameter value = 1;
    Expected result: list of 2 elements, element at position 2 shifted to position 1.
 
-27. Remove first item from a list with more than 2 elements using "RemoveAt" method.
+27. Remove item in the middle of a not empty list using "RemoveAt" method.
+   Steps:
+   - Create empty list of type string;
+   - Add items with values 1, 2, 3 sequentially using "Add" method;
+   - Call "RemoveAt" method with parameter value = 1;
+   - Add one element with "Item" value = 4 using "Add" method;
+   Expected result: list of 3 elements, element at position 2 shifted to position 1, last element added to position 3.
+
+28. Remove first item from a list with more than 2 elements using "RemoveAt" method.
    Steps:
    - Create empty list of type string;
    - Add items with values 1, 2 sequentially using "Add" method;
    - Call "RemoveAt" method with parameter value = 0;
    Expected result: list of 1 element, element at position 1 shifted to position 0.
 
-28. Get first item from a list of 1 element using "ElementAt" method.
+29. Get first item from a list of 1 element using "ElementAt" method.
    Steps:
    - Create empty list of type Int32;
    - Add item with value = 1 using "Add" method;
    - Call "ElementAt" method with parameter value = 0;
    Expected result: value of 1.
 
-29. Get first item from a list of 2 elements using "ElementAt" method.
+30. Get first item from a list of 2 elements using "ElementAt" method.
    Steps:
    - Create empty list of type Int32;
    - Add items with values 1, 2 sequentially using "Add" method;
    - Call "ElementAt" method with parameter value = 0;
    Expected result: value of 1.
 
-30. Get last item from a list of 2 elements using "ElementAt" method.
+31. Get last item from a list of 2 elements using "ElementAt" method.
    Steps:
    - Create empty list of type Int32;
    - Add items with values 1, 2 sequentially using "Add" method;
    - Call "ElementAt" method with parameter value = 1;
    Expected result: value of 2.
 
-31. Get item at any position from an empty list using "ElementAt" method.
+32. Get item at any position from an empty list using "ElementAt" method.
    Steps:
    - Create empty list of type Int32;
    - Call "ElementAt" method with parameter value = 0;
    Expected result: InvalidOperationException is thrown.
 
-32. Get item at negative position from a not empty list using "ElementAt" method.
+33. Get item at negative position from a not empty list using "ElementAt" method.
    Steps:
    - Create empty list of type Int32;
    - Add item with value 1 using "Add" method;
    - Call "ElementAt" method with parameter value = -1;
    Expected result: ArgumentOutOfRangeException is thrown.
 
-33. Get item at position >= list size from a list using "ElementAt" method.
+34. Get item at position >= list size from a list using "ElementAt" method.
    Steps:
    - Create empty list of type Int32;
    - Add item with value 1 using "Add" method;
    - Call "ElementAt" method with parameter value = 1;
    Expected result: ArgumentOutOfRangeException is thrown.
  	
-34. Sum all elements of a not empty list.
+35. Sum all elements of a not empty list.
    Steps:
    - Create empty list of type Int32;
    - Add item with value 1, 2 sequentially using "Add" method;
+   - Count all elements using foreach;
    - Sum all elements using foreach;
-   Expected result: value of 3.
+   Expected result: value of 3, 2 elements in the list.
 
-35. Sum all elements of an empty list.
+36. Sum all elements of an empty list.
    Steps:
    - Create empty list of type Int32;
+   - Count all elements using foreach;
    - Sum all elements using foreach;
-   Expected result: value of 0.
+   Expected result: value of 0, 0 elements in the list.
