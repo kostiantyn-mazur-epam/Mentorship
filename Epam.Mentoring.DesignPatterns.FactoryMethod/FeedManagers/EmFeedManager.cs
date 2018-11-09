@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace Epam.Mentoring.DesignPatterns.FactoryMethod
 {
-    internal sealed class EmFeedManager : FeedManagerBase
+    internal sealed class EmFeedManager : FeedManager
     {
-        public EmFeedManager(IReadOnlyCollection<TradeFeedItemBase> feed, IDictionary<int, UvarAccount> uvarAccounts)
+        public EmFeedManager(IReadOnlyCollection<TradeFeedItem> feed, IDictionary<int, UvarAccount> uvarAccounts)
             : base(feed, uvarAccounts)
         {
         }
 
-        protected override bool MatchItem(TradeFeedItemBase trade, out int id)
+        protected override bool MatchItem(TradeFeedItem trade, out int id)
         {
             if (trade == null)
             {
@@ -22,7 +22,7 @@ namespace Epam.Mentoring.DesignPatterns.FactoryMethod
             return UvarAccounts.ContainsKey(id);
         }
 
-        protected override void SaveTrade(TradeFeedItemBase trade)
+        protected override void SaveTrade(TradeFeedItem trade)
         {
             if (trade == null)
             {

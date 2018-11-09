@@ -2,9 +2,9 @@
 
 namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator.Decorators
 {
-    internal sealed class SqrSqrtExpCalculatorDecorator : CalculatorDecoratorBase<double>
+    internal sealed class SqrSqrtExpCalculatorDecorator : CalculatorDecorator<double>
     {
-        public SqrSqrtExpCalculatorDecorator(CalculatorBase<double> calculator) :
+        public SqrSqrtExpCalculatorDecorator(Calculator<double> calculator) :
             base(calculator,
                 new DoubleExponentiation(
                     new Constant<double>(2),
