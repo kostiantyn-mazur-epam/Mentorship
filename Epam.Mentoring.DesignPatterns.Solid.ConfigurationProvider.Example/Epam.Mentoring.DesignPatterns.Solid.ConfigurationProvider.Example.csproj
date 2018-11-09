@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>Epam.Mentoring.DesignPatterns.Solid.Example</RootNamespace>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider\Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.csproj" />
+  </ItemGroup>
+</Project>
