@@ -2,19 +2,16 @@
 
 namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator
 {
-    internal abstract class CalculatorBase<T> : ICalculator<T>
+    internal abstract class Calculator<T> : ICalculator<T>
     {
         protected Dictionary<string, IExpression<T>> _operations;
 
         public Dictionary<string, IExpression<T>> Operations
         {
-            get
-            {
-                return _operations;
-            }
+            get => _operations;
         }
 
-        public CalculatorBase(params IExpression<T>[] operations)
+        public Calculator(params IExpression<T>[] operations)
         {
             _operations = new Dictionary<string, IExpression<T>>();
 

@@ -2,7 +2,7 @@
 
 namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator
 {
-    internal sealed class BasicCalculator : CalculatorBase<double>
+    internal sealed class BasicCalculator : Calculator<double>
     {
         public BasicCalculator() : 
             base(new IExpression<double>[] {

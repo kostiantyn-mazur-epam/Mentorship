@@ -1,10 +1,10 @@
 ﻿namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
 {
-    internal abstract class CalculationServiceDecoratorBase : ICalculationService
+    internal abstract class CalculationServiceDecorator : ICalculationService
     {
         protected ICalculationService _calculationService;
 
-        public CalculationServiceDecoratorBase(ICalculationService calculationService)
+        public CalculationServiceDecorator(ICalculationService calculationService)
         {
             _calculationService = calculationService;
         }

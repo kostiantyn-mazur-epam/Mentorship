@@ -2,7 +2,7 @@
 
 namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
 {
-    internal sealed class CacheCalculationServiceDecorator : CalculationServiceDecoratorBase
+    internal sealed class CacheCalculationServiceDecorator : CalculationServiceDecorator
     {
         private Dictionary<(decimal, decimal), decimal> _cache;
 

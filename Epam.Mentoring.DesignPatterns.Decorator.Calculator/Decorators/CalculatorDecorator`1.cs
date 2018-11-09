@@ -2,9 +2,9 @@
 
 namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator
 {
-    internal abstract class CalculatorDecoratorBase<T> : CalculatorBase<T>
+    internal abstract class CalculatorDecorator<T> : Calculator<T>
     {
-        public CalculatorDecoratorBase(CalculatorBase<T> calculator, params IExpression<T>[] operations) :
+        public CalculatorDecorator(Calculator<T> calculator, params IExpression<T>[] operations) :
             base(calculator.Operations.Values.ToArray())
         {
             if (operations.Length > 0)
