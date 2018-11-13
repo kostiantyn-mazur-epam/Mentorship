@@ -7,4 +7,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider\Epam.Mentoring.DesignPatterns.Solid.ConfigurationProvider.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Dev.cfg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
