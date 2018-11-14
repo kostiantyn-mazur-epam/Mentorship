@@ -1,6 +1,6 @@
 ﻿namespace Epam.Mentoring.DesignPatterns.Factory
 {
-    internal sealed class Trade
+    public sealed class Trade
     {
         public int Amount
         {

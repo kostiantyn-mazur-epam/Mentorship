@@ -1,6 +1,6 @@
 ﻿namespace Epam.Mentoring.DesignPatterns.FactoryMethod.Feeds
 {
-    internal sealed class EmTradeFeedItem : TradeFeedItem
+    public sealed class EmTradeFeedItem : TradeFeedItem
     {
         public int Sedol
         {

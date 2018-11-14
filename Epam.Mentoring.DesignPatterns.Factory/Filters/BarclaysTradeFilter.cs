@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Epam.Mentoring.DesignPatterns.Factory
+namespace Epam.Mentoring.DesignPatterns.Factory.Filters
 {
-    internal sealed class BarclaysTradeFilter : ITradeFilter
+    public sealed class BarclaysTradeFilter : ITradeFilter
     {
         public IEnumerable<Trade> Approve(IEnumerable<Trade> feed)
         {

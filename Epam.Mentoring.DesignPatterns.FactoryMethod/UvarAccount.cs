@@ -2,7 +2,7 @@
 
 namespace Epam.Mentoring.DesignPatterns.FactoryMethod
 {
-    internal sealed class UvarAccount
+    public sealed class UvarAccount
     {
         public UvarAccount(int id, string name)
         {
