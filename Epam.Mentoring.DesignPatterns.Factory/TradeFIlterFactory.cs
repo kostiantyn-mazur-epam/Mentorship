@@ -1,27 +1,22 @@
-﻿using System;
+﻿using Epam.Mentoring.DesignPatterns.Factory.Filters;
 
 namespace Epam.Mentoring.DesignPatterns.Factory
 {
-    internal sealed class TradeFilterFactory
+    public static class TradeFilterFactory
     {
-        public ITradeFilter CreateInstance(string bankName)
+        public static BofaTradeFilter CreateBofa()
         {
-            if (bankName == null)
-            {
-                throw new ArgumentNullException(nameof(bankName));
-            }
+            return new BofaTradeFilter();
+        }
 
-            switch (bankName)
-            {
-                case "Bofa":
-                    return new BofaTradeFilter();
-                case "Connacord":
-                    return new ConnacordTradeFilter();
-                case "Barclays":
-                    return new BarclaysTradeFilter();
-                default:
-                    throw new ArgumentException("Given bank name not in the list", nameof(bankName));
-            }
+        public static BarclaysTradeFilter CreateBarclays()
+        {
+            return new BarclaysTradeFilter();
+        }
+
+        public static ConnacordTradeFilter CreateConnacord()
+        {
+            return new ConnacordTradeFilter();
         }
     }
 }

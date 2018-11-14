@@ -2,7 +2,7 @@
 
 namespace Epam.Mentoring.DesignPatterns.Factory
 {
-    internal interface ITradeFilter
+    public interface ITradeFilter
     {
         IEnumerable<Trade> Approve(IEnumerable<Trade> trades);
     }

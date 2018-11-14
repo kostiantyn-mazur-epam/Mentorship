@@ -2,7 +2,7 @@
 
 namespace Epam.Mentoring.DesignPatterns.FactoryMethod.Feeds
 {
-    internal sealed class DeltaOneTradeFeedItem : TradeFeedItem
+    public sealed class DeltaOneTradeFeedItem : TradeFeedItem
     {
         public bool IsIn
         {

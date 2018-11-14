@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using Epam.Mentoring.DesignPatterns.FactoryMethod.Feeds;
 
 namespace Epam.Mentoring.DesignPatterns.FactoryMethod
 {
-    internal sealed class DeltaOneFeedManager : FeedManager
+    internal sealed class DeltaOneFeedManager : FeedManager<DeltaOneTradeFeedItem>
     {
-        public DeltaOneFeedManager(IReadOnlyCollection<TradeFeedItem> feed, IDictionary<int, UvarAccount> uvarAccounts)
+        public DeltaOneFeedManager(IReadOnlyCollection<DeltaOneTradeFeedItem> feed, IDictionary<int, UvarAccount> uvarAccounts)
             : base(feed, uvarAccounts)
         {
         }
 
-        protected override bool MatchItem(TradeFeedItem trade, out int id)
+        protected override bool MatchItem(DeltaOneTradeFeedItem trade, out int id)
         {
             if (trade == null)
             {
@@ -22,14 +23,14 @@ namespace Epam.Mentoring.DesignPatterns.FactoryMethod
             return UvarAccounts.ContainsKey(id);
         }
 
-        protected override void SaveTrade(TradeFeedItem trade)
+        protected override void SaveTrade(DeltaOneTradeFeedItem trade)
         {
             if (trade == null)
             {
                 throw new ArgumentNullException(nameof(trade));
             }
 
-            Console.WriteLine("<Feed Type: DeltaOne feed> has been saved");
+            Console.WriteLine($"<Feed Type: DeltaOne feed> has been saved, ID: {trade.StagingId}, IS_IN: {trade.IsIn}");
         }
     }
 }

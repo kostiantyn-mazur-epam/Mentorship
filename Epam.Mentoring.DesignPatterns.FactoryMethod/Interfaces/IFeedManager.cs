@@ -1,6 +1,6 @@
 ﻿namespace Epam.Mentoring.DesignPatterns.FactoryMethod
 {
-    internal interface IFeedManager
+    public interface IFeedManager
     {
         void Process();
     }

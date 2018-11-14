@@ -2,7 +2,7 @@
 
 namespace Epam.Mentoring.DesignPatterns.FactoryMethod
 {
-    internal abstract class TradeFeedItem
+    public abstract class TradeFeedItem
     {
         public int StagingId
         {

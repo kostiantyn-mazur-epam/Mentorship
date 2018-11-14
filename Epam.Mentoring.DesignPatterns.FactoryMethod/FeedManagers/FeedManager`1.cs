@@ -4,14 +4,15 @@ using System.Globalization;
 
 namespace Epam.Mentoring.DesignPatterns.FactoryMethod
 {
-    internal abstract class FeedManager : IFeedManager
+    internal abstract class FeedManager<T> : IFeedManager
+        where T : TradeFeedItem
     {
         private readonly Dictionary<int, string> _validationErrors = new Dictionary<int, string>();
-        private readonly List<TradeFeedItem> _validatedFeed = new List<TradeFeedItem>();
+        private readonly List<T> _validatedFeed = new List<T>();
         private readonly IDictionary<int, UvarAccount> _uvarAccounts;
-        private readonly IReadOnlyCollection<TradeFeedItem> _incomingFeed;
+        private readonly IReadOnlyCollection<T> _incomingFeed;
 
-        protected FeedManager(IReadOnlyCollection<TradeFeedItem> incomingFeed, IDictionary<int, UvarAccount> uvarAccounts)
+        protected FeedManager(IReadOnlyCollection<T> incomingFeed, IDictionary<int, UvarAccount> uvarAccounts)
         {
             if (incomingFeed == null)
             {
@@ -26,7 +27,7 @@ namespace Epam.Mentoring.DesignPatterns.FactoryMethod
             _uvarAccounts = uvarAccounts;
         }
 
-        private void ValidateFeed(IReadOnlyCollection<TradeFeedItem> incomingFeed)
+        private void ValidateFeed(IReadOnlyCollection<T> incomingFeed)
         {
             if (incomingFeed == null)
             {
@@ -68,9 +69,9 @@ namespace Epam.Mentoring.DesignPatterns.FactoryMethod
             }
         }
 
-        protected abstract bool MatchItem(TradeFeedItem trade, out int id);
+        protected abstract bool MatchItem(T trade, out int id);
 
-        protected abstract void SaveTrade(TradeFeedItem trade);
+        protected abstract void SaveTrade(T trade);
 
         protected IDictionary<int, UvarAccount> UvarAccounts
         {
