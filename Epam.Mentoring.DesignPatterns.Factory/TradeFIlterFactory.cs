@@ -2,19 +2,19 @@
 
 namespace Epam.Mentoring.DesignPatterns.Factory
 {
-    public static class TradeFilterFactory
+    public class TradeFilterFactory
     {
-        public static BofaTradeFilter CreateBofa()
+        public virtual BofaTradeFilter CreateBofa()
         {
             return new BofaTradeFilter();
         }
 
-        public static BarclaysTradeFilter CreateBarclays()
+        public virtual BarclaysTradeFilter CreateBarclays()
         {
             return new BarclaysTradeFilter();
         }
 
-        public static ConnacordTradeFilter CreateConnacord()
+        public virtual ConnacordTradeFilter CreateConnacord()
         {
             return new ConnacordTradeFilter();
         }
