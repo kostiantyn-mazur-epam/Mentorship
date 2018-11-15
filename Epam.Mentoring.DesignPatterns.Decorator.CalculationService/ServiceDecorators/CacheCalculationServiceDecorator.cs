@@ -7,7 +7,8 @@ namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
     {
         private Dictionary<(decimal, decimal), decimal> _cache;
 
-        public CacheCalculationServiceDecorator(ICalculationService calculationService) : base(calculationService)
+        public CacheCalculationServiceDecorator(ICalculationService calculationService) 
+            : base(calculationService)
         {
         }
 
