@@ -1,6 +1,7 @@
 ﻿using System;
+using Epam.Mentoring.DesignPatterns.Decorator.Interfaces;
 
-namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator.Expressions
+namespace Epam.Mentoring.DesignPatterns.Decorator.Expressions
 {
     internal sealed class DoubleSqrt : IExpression<double>
     {

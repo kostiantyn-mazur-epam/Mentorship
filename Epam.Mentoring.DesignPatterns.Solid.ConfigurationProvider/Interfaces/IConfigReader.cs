@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.DesignPatterns.Solid
+﻿namespace Epam.Mentoring.DesignPatterns.Solid.Interfaces
 {
     public interface IConfigReader
     {

@@ -1,4 +1,4 @@
-﻿namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator
+﻿namespace Epam.Mentoring.DesignPatterns.Decorator.Interfaces
 {
     public interface ICalculator<T>
     {

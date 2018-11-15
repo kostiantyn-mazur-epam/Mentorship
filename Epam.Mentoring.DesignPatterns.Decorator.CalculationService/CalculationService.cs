@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using Epam.Mentoring.DesignPatterns.Decorator.Interfaces;
 
 namespace Epam.Mentoring.DesignPatterns.Decorator
 {

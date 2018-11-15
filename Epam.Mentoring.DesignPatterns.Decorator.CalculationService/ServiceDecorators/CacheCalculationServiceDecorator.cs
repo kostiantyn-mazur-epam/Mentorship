@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Epam.Mentoring.DesignPatterns.Decorator.Interfaces;
 
 namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
 {
@@ -6,7 +7,8 @@ namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
     {
         private Dictionary<(decimal, decimal), decimal> _cache;
 
-        public CacheCalculationServiceDecorator(ICalculationService calculationService) : base(calculationService)
+        public CacheCalculationServiceDecorator(ICalculationService calculationService) 
+            : base(calculationService)
         {
         }
 

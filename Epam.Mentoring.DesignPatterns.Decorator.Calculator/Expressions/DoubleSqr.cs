@@ -1,4 +1,6 @@
-﻿namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator.Expressions
+﻿using Epam.Mentoring.DesignPatterns.Decorator.Interfaces;
+
+namespace Epam.Mentoring.DesignPatterns.Decorator.Expressions
 {
     internal sealed class DoubleSqr : IExpression<double>
     {

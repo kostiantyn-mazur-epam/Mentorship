@@ -1,8 +1,11 @@
-﻿namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
+﻿using Epam.Mentoring.DesignPatterns.Decorator.Interfaces;
+
+namespace Epam.Mentoring.DesignPatterns.Decorator.ServiceDecorators
 {
     internal sealed class CorrectionCalculationServiceDecorator : CalculationServiceDecorator
     {
-        public CorrectionCalculationServiceDecorator(ICalculationService calculationService) : base(calculationService)
+        public CorrectionCalculationServiceDecorator(ICalculationService calculationService)
+            : base(calculationService)
         {
         }
 
