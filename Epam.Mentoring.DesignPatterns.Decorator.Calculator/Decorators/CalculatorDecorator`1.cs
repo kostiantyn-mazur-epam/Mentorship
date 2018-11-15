@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using Epam.Mentoring.DesignPatterns.Decorator.Interfaces;
 
-namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator
+namespace Epam.Mentoring.DesignPatterns.Decorator.Decorators
 {
     internal abstract class CalculatorDecorator<T> : Calculator<T>
     {

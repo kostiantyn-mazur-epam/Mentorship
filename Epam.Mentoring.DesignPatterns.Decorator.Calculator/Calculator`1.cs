@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Epam.Mentoring.DesignPatterns.Decorator.Interfaces;
 
-namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator
+namespace Epam.Mentoring.DesignPatterns.Decorator
 {
     internal abstract class Calculator<T> : ICalculator<T>
     {

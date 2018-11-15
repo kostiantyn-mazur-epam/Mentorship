@@ -1,5 +1,5 @@
 ﻿using System;
-using Epam.Mentoring.DesignPatterns.Decorator.Calculator.Decorators;
+using Epam.Mentoring.DesignPatterns.Decorator.Decorators;
 
 namespace Epam.Mentoring.DesignPatterns.Decorator.Calculator
 {

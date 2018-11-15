@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Epam.Mentoring.DesignPatterns.Solid.Interfaces;
 
 namespace Epam.Mentoring.DesignPatterns.Solid
 {
